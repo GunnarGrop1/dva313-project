@@ -1,5 +1,5 @@
 .eslintcache
-node_modules
-.log
-.vscode
-debug.el
+dashboard/node_modules
+dashboard/.log
+dashboard/.vscode
+dashboard/debug.el
