@@ -1,25 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
+import ChartLine from './charts/LineChart.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+          <div className="MenuBar" id="left">
+          </div>
+          <div className="MenuBar" id="top">
+            <div className="Button">Time span</div>
+            <div className="Button">Virtual machine</div>
+          </div>
+          <div className="ChartContainer">
+            <ChartLine />
+            <ChartLine />
+            <ChartLine />
+          </div>
+        </div>
+    );
 }
 
 export default App;

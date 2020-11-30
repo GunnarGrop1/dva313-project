@@ -1,38 +1,90 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
+    text-align: center;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+	transform: rotate(0deg);
+    }
+    to {
+	transform: rotate(360deg);
+    }
+}
+
+.MenuBar {
+    position: absolute;
+    display: flex;
+}
+
+#left {
+    background-color: #222222;
+    float: left;
+    width: 40px;
+    height: 100%;
+
+    border-right-width: 0.1px;
+    border-right-style: solid;
+    border-right-color: #717171;
+
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+}
+
+#top {
+    float: top;
+    width: 100%;
+    height: 40px;
+
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+}
+
+.Button {
+    background-color: #222222;
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 5px;
+
+    color: #c9d0e1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 2px;
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+}
+
+.ChartContainer {
+    position: relative;
+    float: left;
+    margin-left: 45px;
+    margin-top: 45px;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.ChartContainer .Chart {
+    background-color: #222222;
+    margin: 10px;
+    padding: 10px;
+
+    color: #c9d0e1;
+
+    border-radius: 2px;
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
