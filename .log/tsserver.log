@@ -1,0 +1,173 @@
+Info 0    [22:06:48.193] Starting TS Server
+Info 1    [22:06:48.193] Version: 4.1.2
+Info 2    [22:06:48.193] Arguments: /usr/bin/node14 /usr/local/bin/tsserver --logFile /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/.log/tsserver.log --logVerbosity info --cancellationPipeName /tmp/e2b49a7096790dd992d50c3838a32e6d/tscancellation*
+Info 3    [22:06:48.193] Platform: linux NodeVersion: 14 CaseSensitive: true
+Info 4    [22:06:48.193] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [22:06:48.204] Search path: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src
+Info 6    [22:06:48.205] For info: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src/index.js :: No config files found.
+Info 7    [22:06:48.208] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 8    [22:06:50.727] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true Elapsed: 2518.3569839987904ms
+Info 9    [22:06:50.727] Project '/dev/null/inferredProject1*' (Inferred)
+Info 10   [22:06:50.727] 	Files (155)
+
+Info 11   [22:06:50.727] -----------------------------------------------
+Info 12   [22:06:50.739] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject1*
+Info 13   [22:06:51.306] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject1* Version: 1 structureChanged: true Elapsed: 566.7411439996213ms
+Info 14   [22:06:51.306] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 15   [22:06:51.306] 	Files (80)
+
+Info 16   [22:06:51.306] -----------------------------------------------
+Info 17   [22:06:51.440] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 18   [22:06:51.441] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: false Elapsed: 1.1521439999341965ms
+Info 19   [22:06:53.941] Before ensureProjectForOpenFiles:
+Info 20   [22:06:53.941] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 21   [22:06:53.948] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 3 structureChanged: true Elapsed: 7.332654999569058ms
+Info 22   [22:06:53.948] Project '/dev/null/inferredProject1*' (Inferred)
+Info 23   [22:06:53.948] 	Files (0)
+
+Info 24   [22:06:53.948] -----------------------------------------------
+Info 25   [22:06:53.948] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 26   [22:06:53.948] 	Files (80)
+
+Info 27   [22:06:53.948] -----------------------------------------------
+Info 28   [22:06:53.949] After ensureProjectForOpenFiles:
+Info 29   [22:06:53.949] got projects updated in background, updating diagnostics for 
+Info 30   [22:06:54.302] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 31   [22:06:54.302] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 4 structureChanged: false Elapsed: 0.05891000106930733ms
+Info 32   [22:06:56.552] Before ensureProjectForOpenFiles:
+Info 33   [22:06:56.552] After ensureProjectForOpenFiles:
+Info 34   [22:06:56.552] got projects updated in background, updating diagnostics for 
+Info 35   [22:07:19.867] Search path: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src
+Info 36   [22:07:19.868] For info: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src/index.js :: No config files found.
+Info 37   [22:07:19.870] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 38   [22:07:20.344] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 5 structureChanged: true Elapsed: 473.48632200062275ms
+Info 39   [22:07:20.344] Project '/dev/null/inferredProject1*' (Inferred)
+Info 40   [22:07:20.344] 	Files (155)
+
+Info 41   [22:07:20.344] -----------------------------------------------
+Info 42   [22:07:20.344] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 43   [22:07:20.344] 	Files (80)
+
+Info 44   [22:07:20.344] -----------------------------------------------
+Info 45   [22:07:20.459] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 46   [22:07:20.461] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 6 structureChanged: false Elapsed: 1.403787000104785ms
+Info 47   [22:07:22.950] Before ensureProjectForOpenFiles:
+Info 48   [22:07:22.951] After ensureProjectForOpenFiles:
+Info 49   [22:07:22.951] got projects updated in background, updating diagnostics for /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src/index.js
+Info 50   [22:07:23.978] Search path: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src
+Info 51   [22:07:23.978] For info: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/src/App.js :: No config files found.
+Info 52   [22:18:25.329] Search path: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/docs/custom_template
+Info 53   [22:18:25.331] For info: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/docs/custom_template/publish.js :: No config files found.
+Info 54   [22:18:25.343] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 55   [22:18:25.878] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 1 structureChanged: true Elapsed: 535.426473999396ms
+Info 56   [22:18:25.878] Project '/dev/null/inferredProject2*' (Inferred)
+Info 57   [22:18:25.878] 	Files (138)
+
+Info 58   [22:18:25.878] -----------------------------------------------
+Info 59   [22:18:25.908] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject2*
+Info 60   [22:18:25.965] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject2* Version: 1 structureChanged: true Elapsed: 56.53031700104475ms
+Info 61   [22:18:25.965] Project '/dev/null/autoImportProviderProject2*' (AutoImportProvider)
+Info 62   [22:18:25.965] 	Files (87)
+
+Info 63   [22:18:25.965] -----------------------------------------------
+Info 64   [22:18:25.966] `remove Project::
+Info 65   [22:18:25.966] Project '/dev/null/inferredProject1*' (Inferred)
+Info 66   [22:18:25.966] 	Files (155)
+
+Info 67   [22:18:25.966] -----------------------------------------------
+Info 68   [22:18:25.966] Project '/dev/null/autoImportProviderProject1*' (AutoImportProvider)
+Info 69   [22:18:25.966] 	Files (80)
+
+Info 70   [22:18:25.966] -----------------------------------------------
+Info 71   [22:18:26.108] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 72   [22:18:26.178] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 2 structureChanged: true Elapsed: 69.48732400126755ms
+Info 73   [22:18:26.178] Different program with same set of files:: structureIsReused:: 1
+Info 74   [22:18:28.608] Before ensureProjectForOpenFiles:
+Info 75   [22:18:28.608] After ensureProjectForOpenFiles:
+Info 76   [22:18:28.609] got projects updated in background, updating diagnostics for /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/docs/custom_template/publish.js
+Info 77   [22:18:31.331] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 78   [22:18:31.392] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 3 structureChanged: false Elapsed: 60.93338800035417ms
+Info 79   [22:18:31.392] Different program with same set of files:: structureIsReused:: 2
+Info 80   [22:18:32.813] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 81   [22:18:32.855] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 4 structureChanged: false Elapsed: 41.36446899920702ms
+Info 82   [22:18:32.855] Different program with same set of files:: structureIsReused:: 2
+Info 83   [22:18:33.915] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 84   [22:18:33.943] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 5 structureChanged: false Elapsed: 28.704117000102997ms
+Info 85   [22:18:33.944] Different program with same set of files:: structureIsReused:: 2
+Info 86   [22:18:35.158] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 87   [22:18:35.193] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 6 structureChanged: false Elapsed: 34.89335300028324ms
+Info 88   [22:18:35.193] Different program with same set of files:: structureIsReused:: 2
+Info 89   [22:18:35.930] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 90   [22:18:35.963] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 7 structureChanged: false Elapsed: 32.80675400048494ms
+Info 91   [22:18:35.963] Different program with same set of files:: structureIsReused:: 2
+Info 92   [22:18:36.548] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 93   [22:18:36.577] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 8 structureChanged: false Elapsed: 29.189169000834227ms
+Info 94   [22:18:36.577] Different program with same set of files:: structureIsReused:: 2
+Info 95   [22:18:37.066] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 96   [22:18:37.097] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 9 structureChanged: false Elapsed: 30.89676699973643ms
+Info 97   [22:18:37.097] Different program with same set of files:: structureIsReused:: 2
+Info 98   [22:18:37.534] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 99   [22:18:37.567] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 10 structureChanged: false Elapsed: 32.82174300029874ms
+Info 100  [22:18:37.567] Different program with same set of files:: structureIsReused:: 2
+Info 101  [22:18:37.944] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 102  [22:18:37.968] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 11 structureChanged: false Elapsed: 24.1618449985981ms
+Info 103  [22:18:37.968] Different program with same set of files:: structureIsReused:: 2
+Info 104  [22:18:38.615] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 105  [22:18:38.641] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 12 structureChanged: false Elapsed: 25.9124340005219ms
+Info 106  [22:18:38.641] Different program with same set of files:: structureIsReused:: 2
+Info 107  [22:18:39.486] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 108  [22:18:39.511] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 13 structureChanged: false Elapsed: 24.99678299948573ms
+Info 109  [22:18:39.511] Different program with same set of files:: structureIsReused:: 2
+Info 110  [22:18:39.803] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 111  [22:18:39.824] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 14 structureChanged: false Elapsed: 20.683842999860644ms
+Info 112  [22:18:39.824] Different program with same set of files:: structureIsReused:: 2
+Info 113  [22:18:40.255] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 114  [22:18:40.269] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 15 structureChanged: false Elapsed: 13.239187998697162ms
+Info 115  [22:18:40.269] Different program with same set of files:: structureIsReused:: 2
+Info 116  [22:18:41.268] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 117  [22:18:41.293] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 16 structureChanged: false Elapsed: 25.146406000480056ms
+Info 118  [22:18:41.293] Different program with same set of files:: structureIsReused:: 2
+Info 119  [22:18:42.444] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 120  [22:18:42.469] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 17 structureChanged: false Elapsed: 24.899972001090646ms
+Info 121  [22:18:42.469] Different program with same set of files:: structureIsReused:: 2
+Info 122  [22:18:42.733] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 123  [22:18:42.757] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 18 structureChanged: false Elapsed: 23.818701000884175ms
+Info 124  [22:18:42.757] Different program with same set of files:: structureIsReused:: 2
+Info 125  [22:18:42.855] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 126  [22:18:42.880] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 19 structureChanged: false Elapsed: 24.806005999445915ms
+Info 127  [22:18:42.880] Different program with same set of files:: structureIsReused:: 2
+Info 128  [22:18:43.224] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 129  [22:18:43.252] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 20 structureChanged: false Elapsed: 27.75965300016105ms
+Info 130  [22:18:43.252] Different program with same set of files:: structureIsReused:: 2
+Info 131  [22:18:43.750] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 132  [22:18:43.762] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 21 structureChanged: false Elapsed: 11.399653000757098ms
+Info 133  [22:18:43.762] Different program with same set of files:: structureIsReused:: 2
+Info 134  [22:19:07.905] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 135  [22:19:07.947] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 22 structureChanged: false Elapsed: 41.588069001212716ms
+Info 136  [22:19:07.947] Different program with same set of files:: structureIsReused:: 2
+Info 137  [22:19:08.176] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 138  [22:19:08.218] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 23 structureChanged: false Elapsed: 41.49127699993551ms
+Info 139  [22:19:08.218] Different program with same set of files:: structureIsReused:: 2
+Info 140  [22:19:08.450] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 141  [22:19:08.475] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 24 structureChanged: false Elapsed: 24.77412600070238ms
+Info 142  [22:19:08.475] Different program with same set of files:: structureIsReused:: 2
+Info 143  [22:19:09.027] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 144  [22:19:09.053] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 25 structureChanged: false Elapsed: 25.635083001106977ms
+Info 145  [22:19:09.053] Different program with same set of files:: structureIsReused:: 2
+Info 146  [22:32:00.884] DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project:  WatchType: node_modules for closed script infos in them
+Info 147  [22:32:00.885] Elapsed:: 1.824787000194192ms DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project:  WatchType: node_modules for closed script infos in them
+Info 148  [22:32:00.886] DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project: /dev/null/autoImportProviderProject2* WatchType: Failed Lookup Locations
+Info 149  [22:32:00.886] Elapsed:: 0.16693300008773804ms DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project: /dev/null/autoImportProviderProject2* WatchType: Failed Lookup Locations
+Info 150  [22:32:00.886] DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project: /dev/null/inferredProject2* WatchType: Failed Lookup Locations
+Info 151  [22:32:00.886] Elapsed:: 0.02288299985229969ms DirectoryWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules :: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/node_modules 1 undefined Project: /dev/null/inferredProject2* WatchType: Failed Lookup Locations
+Info 152  [22:32:01.540] FileWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/package.json 1:: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/package.json 250 undefined Project:  WatchType: package.json file for import suggestions
+Info 153  [22:32:01.541] Elapsed:: 0.6314059998840094ms FileWatcher:: Triggered with /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/package.json 1:: WatchInfo: /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/package.json 250 undefined Project:  WatchType: package.json file for import suggestions
+Info 154  [22:32:02.162] Starting updateGraphWorker: Project: /dev/null/autoImportProviderProject2*
+Info 155  [22:32:02.303] Finishing updateGraphWorker: Project: /dev/null/autoImportProviderProject2* Version: 2 structureChanged: true Elapsed: 140.69780400022864ms
+Info 156  [22:32:02.303] Different program with same set of files:: structureIsReused:: 1
+Info 157  [22:32:02.304] Starting updateGraphWorker: Project: /dev/null/inferredProject2*
+Info 158  [22:32:02.436] Finishing updateGraphWorker: Project: /dev/null/inferredProject2* Version: 26 structureChanged: true Elapsed: 132.65956600010395ms
+Info 159  [22:32:02.436] Different program with same set of files:: structureIsReused:: 1
+Info 160  [22:32:04.389] Before ensureProjectForOpenFiles:
+Info 161  [22:32:04.389] After ensureProjectForOpenFiles:
+Info 162  [22:32:04.389] got projects updated in background, updating diagnostics for /home/gunnar/Nextcloud/Skola/MDH/DVA313 - Software Engineering 2/dva313-project/dashboard/docs/custom_template/publish.js

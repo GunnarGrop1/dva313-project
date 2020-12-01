@@ -1,0 +1,26 @@
+{
+    "source": {
+	"include": ["src"],
+	"includePattern": ".js$",
+	"excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": ["plugins/markdown"],
+    "templates": {
+	"cleverLinks": true,
+	"monospaceLinks": true
+    },
+    "opts": {
+	"recurse": true,
+	"destination": "./docs/",
+	"template": "node_modules/tui-jsdoc-template"
+    },
+    "templates" : {
+	"logo": {
+            "url": "",
+            "width": "0px",
+            "height": "0px"
+	},
+	"name": "Front-end docs",
+	"footerText": "DVA313 Project"
+    }
+}
