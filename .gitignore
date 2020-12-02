@@ -3,4 +3,4 @@ dashboard/node_modules
 dashboard/.log
 dashboard/.vscode
 dashboard/debug.el
-dashboard/.log
+.log
