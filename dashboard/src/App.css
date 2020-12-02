@@ -72,8 +72,9 @@
     justify-content: space-between;
 }
 
-.ChartContainer .Chart {
+.ChartContainer .ChartItem {
     background-color: #222222;
+    width: 500px;
     margin: 10px;
     padding: 10px;
 
@@ -87,4 +88,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    flex: auto;
 }
