@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Source: chart.js | Front-end docs</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-jsdoc.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/tui-doc.css">
+
+    
+</head>
+<body>
+<nav class="lnb" id="lnb">
+    <div class="logo" style="width: 0px; height: 0px">
+        
+            <img src="img/toast-ui.png" width="100%" height="100%">
+        
+    </div>
+    <div class="title">
+        <h1><a href="index.html" class="link">Front-end docs</a></h1>
+        
+    </div>
+    <div class="search-container" id="search-container">
+        <input type="text" placeholder="Search">
+        <ul></ul>
+    </div>
+    
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li></ul></div>
+</nav>
+<div id="resizer"></div>
+
+<div class="main" id="main">
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// @ts-check
+
+// @ts-ignore
+import React, {Component} from 'react';
+import {Line} from 'react-chartjs-2';
+
+/**
+ * Class to create charts of diffrent types
+ */
+class Chart extends Component {
+    /**
+     * @param {Object} props Properties passed from caller
+     * @param {Object} props.chartData - Data used to construct the chart
+     * @param {string[]} props.chartData.labels - Labels for the x-axis
+     * @param {Object[]} props.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets)
+     * @param {string} props.chartData.datasets[].label - Label to use for the dataset
+     * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset
+     * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors)
+     */
+    constructor(props) {
+        super(props);
+        this.state = {
+            chartData: props.chartData
+        };
+    }
+
+    /**
+     * Deafult values for select chart properties. These values can be overridden
+     * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
+     */
+    static defaultProps = {
+        type: Line,
+        titleDisplay: true,
+        titleText: 'CPU Utilization',
+        titleSize: 18,
+        titleColor: '#FFF',
+        legendDisplay: true,
+        legendPosition: 'bottom',
+    };
+
+    /**
+     * Renders chart to the screen
+     */
+    render() {
+        return(
+            &lt;div className="ChartItem">
+              &lt;this.props.type
+                data = {this.state.chartData}
+                options = {{
+                    title: {
+                        display: this.props.titleDisplay,
+                        text: this.props.titleText,
+                        fontSize: this.props.titleSize,
+                        fontColor: this.props.titleColor
+                    },
+                    legend: {
+                        display: this.props.legendDisplay,
+                        position: this.props.legendPosition
+                    }
+                }}
+              />
+            &lt;/div>
+        );
+    }
+}
+
+export default Chart;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<footer>
+    <img class="logo" src="img/toast-ui.png" style="width: 0px; height: 0px">
+    <div class="footer-text">DVA313 Project</div>
+</footer>
+<script>prettyPrint();</script>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/tui-doc.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+    <script>
+        var id = '_sub'.replace(/"/g, '_');
+        var selectedApi = document.getElementById(id); // do not use jquery selector
+        var $selectedApi = $(selectedApi);
+
+        $selectedApi.removeClass('hidden');
+        $selectedApi.parent().find('.glyphicon').removeClass('glyphicon-plus').addClass('glyphicon-minus');
+        showLnbApi();
+    </script>
+
+</body>
+</html>
