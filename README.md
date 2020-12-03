@@ -4,7 +4,7 @@
 The dashboard only depends on [npm](https://www.npmjs.com/get-npm).
 ### Install npm dependencies
 ```
-npm install
+cd dashboard && npm install
 ```
 ### Run the react-server
 ```
