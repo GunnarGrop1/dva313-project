@@ -1,6 +1,7 @@
 import './App.css';
 import Chart from './components/chart';
 import {Line, Bar, Pie} from 'react-chartjs-2';
+import GlobalMenuBar from './components/globalMenuBar';
 
 const chartData1 = {
     labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
@@ -89,12 +90,7 @@ const chartData3 = {
 function App() {
     return (
         <div className="App">
-          <div className="MenuBar" id="left">
-          </div>
-          <div className="MenuBar" id="top">
-            <div className="Button">Time span</div>
-            <div className="Button">Virtual machine</div>
-          </div>
+          <GlobalMenuBar />
           <div className="ChartContainer">
             <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
             <Chart chartData={chartData2} type={Line} />

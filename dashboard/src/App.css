@@ -1,75 +1,47 @@
 .App {
-    text-align: center;
+    position: fixed;
+    padding: 0;
+    margin: 0;
 }
 
-@keyframes App-logo-spin {
-    from {
-	transform: rotate(0deg);
-    }
-    to {
-	transform: rotate(360deg);
-    }
-}
-
-.MenuBar {
-    position: absolute;
-    display: flex;
-}
-
-#left {
-    background-color: #222222;
+.GlobalMenuBar {
+    position: relative;
     float: left;
-    width: 40px;
-    height: 100%;
+    height: 100vh;
+
+    background-color: #222222;
+
+    padding: 10px;
 
     border-right-width: 0.1px;
     border-right-style: solid;
     border-right-color: #717171;
 
-    flex-flow: column nowrap;
-    justify-content: flex-start;
-}
-
-#top {
-    float: top;
-    width: 100%;
-    height: 40px;
-
-    border-bottom-width: 0.1px;
-    border-bottom-style: solid;
-    border-bottom-color: #717171;
-
-    flex-flow: row nowrap;
-    justify-content: flex-end;
-}
-
-.Button {
-    background-color: #222222;
-    height: auto;
-    width: auto;
-    margin: 10px;
-    padding: 5px;
-
-    color: #c9d0e1;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
 
-    border-radius: 2px;
-    border-width: 0.1px;
-    border-style: solid;
-    border-color: #717171;
+    z-index: 1;
+}
+
+.GlobalMenuBar .links {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.GlobalMenuBar .links li a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .ChartContainer {
     position: relative;
     float: left;
-    margin-left: 45px;
-    margin-top: 45px;
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .ChartContainer .ChartItem {
@@ -84,10 +56,4 @@
     border-width: 0.1px;
     border-style: solid;
     border-color: #717171;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    flex: auto;
 }
