@@ -1,4 +1,5 @@
 <?php
+require_once '..\\dbconn\\dbConn.php';
 
 if(!empty($_POST['submit'))
 {
@@ -17,5 +18,4 @@ if (password_verify($password, $hashedPassword->password))
   $_SESSION['loggedIn'] = true;
   $_SESSION['username'] = $username;
 }
-
 ?>
