@@ -53,17 +53,17 @@ import React, {Component} from 'react';
 import {Line} from 'react-chartjs-2';
 
 /**
- * Class to create charts of diffrent types
+ * Class to create charts of diffrent types.
  */
 class Chart extends Component {
     /**
-     * @param {Object} props Properties passed from caller
-     * @param {Object} props.chartData - Data used to construct the chart
-     * @param {string[]} props.chartData.labels - Labels for the x-axis
-     * @param {Object[]} props.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets)
-     * @param {string} props.chartData.datasets[].label - Label to use for the dataset
-     * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset
-     * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors)
+     * @param {Object} props - Properties passed from caller.
+     * @param {Object} props.chartData - Data used to construct the chart.
+     * @param {string[]} props.chartData.labels - Labels for the x-axis.
+     * @param {Object[]} props.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
+     * @param {string} props.chartData.datasets[].label - Label to use for the dataset.
+     * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset.
+     * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
      */
     constructor(props) {
         super(props);
@@ -73,7 +73,7 @@ class Chart extends Component {
     }
 
     /**
-     * Deafult values for select chart properties. These values can be overridden
+     * Deafult values for select chart properties. These values can be overridden.
      * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
      */
     static defaultProps = {
@@ -87,7 +87,7 @@ class Chart extends Component {
     };
 
     /**
-     * Renders chart to the screen
+     * Renders chart to the screen.
      */
     render() {
         return(
