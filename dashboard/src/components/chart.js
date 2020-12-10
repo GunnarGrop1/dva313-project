@@ -9,13 +9,13 @@ import {Line} from 'react-chartjs-2';
  */
 class Chart extends Component {
     /**
-     * @param {Object} props - Properties passed from caller.
-     * @param {Object} props.chartData - Data used to construct the chart.
-     * @param {string[]} props.chartData.labels - Labels for the x-axis.
-     * @param {Object[]} props.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
-     * @param {string} props.chartData.datasets[].label - Label to use for the dataset.
-     * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset.
-     * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
+     * @param {Object} args - Properties passed from caller.
+     * @param {Object} args.chartData - Data used to construct the chart.
+     * @param {string[]} args.chartData.labels - Labels for the x-axis.
+     * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
+     * @param {string} args.chartData.datasets[].label - Label to use for the dataset.
+     * @param {number[]} args.chartData.datasets[].data - Literal data of the dataset.
+     * @param {string[]} args.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
      */
     constructor(args) {
         super(args);
