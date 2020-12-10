@@ -34,7 +34,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li><li><a href="GlobalMenuBar.html">GlobalMenuBar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GlobalMenuBar_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="GlobalMenuBar.html#defaultProps">defaultProps</a></li><li><a href="GlobalMenuBar.html#links">links</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="GlobalMenuBar.html#render">render</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -57,18 +57,18 @@ import {Line} from 'react-chartjs-2';
  */
 class Chart extends Component {
     /**
-     * @param {Object} props - Properties passed from caller.
-     * @param {Object} props.chartData - Data used to construct the chart.
-     * @param {string[]} props.chartData.labels - Labels for the x-axis.
-     * @param {Object[]} props.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
-     * @param {string} props.chartData.datasets[].label - Label to use for the dataset.
-     * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset.
-     * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
+     * @param {Object} args - Properties passed from caller.
+     * @param {Object} args.chartData - Data used to construct the chart.
+     * @param {string[]} args.chartData.labels - Labels for the x-axis.
+     * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
+     * @param {string} args.chartData.datasets[].label - Label to use for the dataset.
+     * @param {number[]} args.chartData.datasets[].data - Literal data of the dataset.
+     * @param {string[]} args.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
      */
-    constructor(props) {
-        super(props);
+    constructor(args) {
+        super(args);
         this.state = {
-            chartData: props.chartData
+            chartData: args.chartData
         };
     }
 
