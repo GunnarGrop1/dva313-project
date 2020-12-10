@@ -17,10 +17,10 @@ class Chart extends Component {
      * @param {number[]} props.chartData.datasets[].data - Literal data of the dataset.
      * @param {string[]} props.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
      */
-    constructor(props) {
-        super(props);
+    constructor(args) {
+        super(args);
         this.state = {
-            chartData: props.chartData
+            chartData: args.chartData
         };
     }
 
