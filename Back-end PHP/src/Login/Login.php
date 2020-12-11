@@ -1,7 +1,7 @@
 <?php
 require_once '..\\dbconn\\dbConn.php';
 
-if(!empty($_POST['submit'))
+if(!empty($_POST['submit']))
 {
   die(); //This is temporary
 }
