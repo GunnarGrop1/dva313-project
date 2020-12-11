@@ -1,0 +1,9 @@
+.eslintcache
+dashboard/node_modules
+dashboard/.log
+dashboard/.vscode
+dashboard/debug.el
+.log
+
+Back-end PHP/AWSSDK
+back-end PHP/credentials.php
