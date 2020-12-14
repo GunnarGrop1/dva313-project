@@ -1,7 +1,11 @@
 .App {
-    position: fixed;
     padding: 0;
     margin: 0;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 .GlobalMenuBar {
@@ -18,10 +22,10 @@
     border-right-color: #717171;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
 
-    z-index: 1;
+    z-index: 99;
 }
 
 .GlobalMenuBar .links {
@@ -30,18 +34,91 @@
     list-style-type: none;
 }
 
-.GlobalMenuBar .links li a {
-    color: #FFFFFF;
-    text-decoration: none;
+.DashboardMenu {
+    float: top;
+
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.DashboardMenu  button {
+    background: #222222;
+    padding: 5px;
+    margin: 10px;
+
+    font-weight: bold;
+    color: white;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition-duration: 0.1s;
+}
+
+.DashboardMenu button:hover {
+    filter: brightness(85%);
+}
+
+.DashboardMenu .Dropdown {
+    position: absolute;
+    background: #222222;
+    margin-top: -10px;
+
+    color: white;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+}
+
+.DashboardMenu .Dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+    border-bottom: none;
+
+    white-space: nowrap;
+}
+
+.DashboardMenu .Dropdown ul li {
+    padding: 10px;
+    margin: 0;
+
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    transition-duration: 0.1s;
+}
+
+.DashboardMenu .Dropdown ul li:hover {
+    filter: brightness(50%);
 }
 
 .ChartContainer {
-    position: relative;
     float: left;
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
 }
 
 .ChartContainer .ChartItem {

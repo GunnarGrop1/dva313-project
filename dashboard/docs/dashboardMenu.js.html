@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | Front-end docs</title>
+    <title>Source: dashboardMenu.js | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -42,19 +44,59 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// @ts-check
 
+// @ts-ignore
+import React, {Component} from 'react';
+import Dropdown from './dropdownMenu';
 
+/**
+ * A specific menu for the dashboard
+ */
+class DashboardMenu extends Component {
+    /**
+     * @param {Object} args - Properties passed from caller.
+     */
+    constructor(args) {
+        super(args);
+        this.state = {
+        };
+    }
 
+    // TODO: fix proper values
+    list = [
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        }
+    ];
 
+    /**
+     * Renders the menu bar to the screen
+     */
+    render() {
+        return(
+            &lt;div className="DashboardMenu">
+              &lt;Dropdown text="Time span" menuItems={this.list}/>
+            &lt;/div>
+        );
+    }
+}
 
-
-
-
-
-    
-
-
-
+export default DashboardMenu;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -71,7 +113,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

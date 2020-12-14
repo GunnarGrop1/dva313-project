@@ -18,7 +18,7 @@ class GlobalMenuBar extends Component {
     }
 
     /**
-     * Deafult values for menu properties. These values can be overridden.
+     * Deafult properties. These can be overridden.
      * @type {{iconSize: string}}
      */
     static defaultProps = {
