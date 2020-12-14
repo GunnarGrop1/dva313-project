@@ -25,7 +25,7 @@ class Chart extends Component {
     }
 
     /**
-     * Deafult values for select chart properties. These values can be overridden.
+     * Deafult properties. These can be overridden.
      * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
      */
     static defaultProps = {
