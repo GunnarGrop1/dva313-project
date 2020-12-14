@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: chart.js | Front-end docs</title>
+    <title>Class: DropdownMenu | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -43,79 +41,298 @@
 
 
 
+
+<section>
+
+<header>
     
-    <section>
-        <article>
-            <pre class="prettyprint source linenums"><code>// @ts-check
+        <h2><span class="attribs"><span class="type-signature"></span></span>DropdownMenu<span class="signature">()</span><span class="type-signature"></span></h2>
+        
+            <div class="class-description"><p>A generic dropdown menu which takes it's text and menu items as properties in the constructor.</p></div>
+        
+    
+</header>
 
-// @ts-ignore
-import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+<article>
+    
+        <div class="container-overview">
+        
+            
 
-/**
- * Class to create charts of diffrent types.
- */
-class Chart extends Component {
-    /**
-     * @param {Object} args - Properties passed from caller.
-     * @param {Object} args.chartData - Data used to construct the chart.
-     * @param {string[]} args.chartData.labels - Labels for the x-axis.
-     * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
-     * @param {string} args.chartData.datasets[].label - Label to use for the dataset.
-     * @param {number[]} args.chartData.datasets[].data - Literal data of the dataset.
-     * @param {string[]} args.chartData.datasets[].backgroundColor - Colors to use for the dataset (can contain several colors).
-     */
-    constructor(args) {
-        super(args);
-        this.state = {
-            chartData: args.chartData
-        };
-    }
+<dt>
+    
+        <h4 class="name" id="DropdownMenu">
+            
+                new <span class="type-signature"></span>DropdownMenu<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="dropdownMenu.js.html">dropdownMenu.js</a></code>,
+                <code><a href="dropdownMenu.js.html#line12">line 12</a></code>
+            </div>
+            
+        </h4>
 
-    /**
-     * Deafult properties. These can be overridden.
-     * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
-     */
-    static defaultProps = {
-        type: Line,
-        titleDisplay: true,
-        titleText: 'CPU Utilization',
-        titleSize: 18,
-        titleColor: '#FFF',
-        legendDisplay: true,
-        legendPosition: 'bottom',
-    };
+        
+    
+</dt>
+<dd>
 
-    /**
-     * Renders chart to the screen.
-     */
-    render() {
-        return(
-            &lt;div className="ChartItem">
-              &lt;this.props.type
-                data = {this.state.chartData}
-                options = {{
-                    title: {
-                        display: this.props.titleDisplay,
-                        text: this.props.titleText,
-                        fontSize: this.props.titleSize,
-                        fontColor: this.props.titleColor
-                    },
-                    legend: {
-                        display: this.props.legendDisplay,
-                        position: this.props.legendPosition
-                    }
-                }}
-              />
-            &lt;/div>
-        );
-    }
-}
+    
 
-export default Chart;
-</code></pre>
-        </article>
-    </section>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+        
+        </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+
+<dt>
+<h4 class="name" id="defaultProps">
+    <span class="type-signature"></span>defaultProps<span class="type-signature"></span>
+    
+    <div class="container-source members">
+        <code><a href="dropdownMenu.js.html">dropdownMenu.js</a></code>,
+        <code><a href="dropdownMenu.js.html#line33">line 33</a></code>
+    </div>
+    
+</h4>
+
+
+</dt>
+<dd>
+    
+    <div class="description">
+        <p>Deafult properties. These can be overridden.</p>
+    </div>
+    
+
+    <!--
+    
+    -->
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+                
+
+<dt>
+    
+        <h4 class="name" id="render">
+            
+                <span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"></span>
+                
+            
+            <div class="container-source members">
+                <code><a href="dropdownMenu.js.html">dropdownMenu.js</a></code>,
+                <code><a href="dropdownMenu.js.html#line40">line 40</a></code>
+            </div>
+            
+        </h4>
+
+        
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        <p>Renders the dropdown to the screen</p>
+    </div>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+    
+
+</dd>
+
+            </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -132,7 +349,7 @@ export default Chart;
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = '_sub'.replace(/"/g, '_');
+        var id = 'DropdownMenu_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 
