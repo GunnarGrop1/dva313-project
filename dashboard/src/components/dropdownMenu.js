@@ -1,20 +1,18 @@
 // @ts-check
 
 // @ts-ignore
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import {RiArrowDownSLine} from 'react-icons/ri';
-
-
 
 /**
  * A generic dropdown menu which takes it's text and menu items as properties in the constructor.
  */
-class DropdownMenu extends Component {
+class Dropdown extends Component {
     /**
-     * @param{object} args - Properties passed from the caller
+     * @param{Object} args - Properties passed from the caller
      * @param{boolean} args.showMenu - Defaults as false.
-     * @param{object} args.menuItems - The menu items that will be shown in the dropdown.
-     * @param{object[]} args.menuItems[] - An array of items.
+     * @param{Object} args.menuItems - The menu items that will be shown in the dropdown.
+     * @param{Object[]} args.menuItems[] - An array of items.
      * @param{string} args.menuItems[].link - The link that the menu item will open.
      * @param{string} args.menuItems[].text - The text that will be displayed on the menu item.
      */
@@ -65,4 +63,4 @@ class DropdownMenu extends Component {
     }
 }
 
-export default DropdownMenu;
+export default Dropdown;
