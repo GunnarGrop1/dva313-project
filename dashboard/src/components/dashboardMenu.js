@@ -2,7 +2,7 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import DropdownMenu from './dropdownMenu';
+import Dropdown from './dropdownMenu';
 
 /**
  * A specific menu for the dashboard
@@ -17,19 +17,30 @@ class DashboardMenu extends Component {
         };
     }
 
+    // TODO: fix proper values
+    list = [
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        }
+    ];
+
     /**
      * Renders the menu bar to the screen
      */
     render() {
         return(
-            <>
-              <div className="DashboardMenu">
-                <ul className="links">
-                  <DropdownMenu text="tjenare"/>
-                  <DropdownMenu/>
-                </ul>
-              </div>
-            </>
+            <div className="DashboardMenu">
+              <Dropdown text="Time span" menuItems={this.list}/>
+            </div>
         );
     }
 }
