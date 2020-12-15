@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | Front-end docs</title>
+    <title>Source: components/globalMenuBar.js | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -42,19 +44,68 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// @ts-check
 
+// @ts-ignore
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
+/**
+ * Creates a menu bar with links
+ */
+class GlobalMenuBar extends Component {
+    /**
+     * @param {Object} args - Properties passed from caller.
+     * @param {Object[]} args.links - An array of links
+     * @param {Object} args.links[].component - The componenent that will be loaded when navigating to this link
+     * @param {string} args.links[].path - The path that should be used to reach said component
+     * @param {Object} args.links[].icon - An icon from the "react-icons" package that will be shown in the menu bar
+     */
+    constructor(args) {
+        super(args);
+        this.state = {
+            links: args.links
+        };
+    }
 
+    /**
+     * Deafult properties. These can be overridden.
+     * @type {{iconSize: string}}
+     */
+    static defaultProps = {
+        iconSize: '40'
+    };
 
+    /**
+     * Renders the menu bar to the screen
+     */
+    render() {
+        return(
+            &lt;>
+              &lt;div className="GlobalMenuBar">
+                &lt;ul className="links">
+                  {
+                      this.state.links.map((obj, i) => {
+                          return ( &lt;Link to={obj.path}>
+                                     &lt;li key={i}>
+                                       &lt;obj.icon size={this.props.iconSize} />
+                                     &lt;/li>
+                                   &lt;/Link> );
+                      })
+                  }
+                &lt;/ul>
+              &lt;/div>
+            &lt;/>
+        );
+    }
+}
 
-
-
-
-
-    
-
-
-
+export default GlobalMenuBar;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -71,7 +122,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 
