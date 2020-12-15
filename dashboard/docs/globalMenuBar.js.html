@@ -34,7 +34,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li><li><a href="DashboardMenu.html">DashboardMenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DashboardMenu_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="DashboardMenu.html#render">render</a></li></ul></div></li><li><a href="Dropdown.html">Dropdown</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Dropdown_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Dropdown.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Dropdown.html#render">render</a></li></ul></div></li><li><a href="GlobalMenuBar.html">GlobalMenuBar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GlobalMenuBar_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="GlobalMenuBar.html#defaultProps">defaultProps</a></li><li><a href="GlobalMenuBar.html#links">links</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="GlobalMenuBar.html#render">render</a></li></ul></div></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li><li><a href="DashboardMenu.html">DashboardMenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DashboardMenu_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="DashboardMenu.html#render">render</a></li></ul></div></li><li><a href="Dropdown.html">Dropdown</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Dropdown_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Dropdown.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Dropdown.html#render">render</a></li></ul></div></li><li><a href="GlobalMenuBar.html">GlobalMenuBar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GlobalMenuBar_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="GlobalMenuBar.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="GlobalMenuBar.html#render">render</a></li></ul></div></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -50,7 +50,7 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {AiOutlineDashboard, AiOutlineSetting} from 'react-icons/ai';
+import {Link} from 'react-router-dom';
 
 /**
  * Creates a menu bar with links
@@ -58,10 +58,15 @@ import {AiOutlineDashboard, AiOutlineSetting} from 'react-icons/ai';
 class GlobalMenuBar extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
+     * @param {Object[]} args.links - An array of links
+     * @param {Object} args.links[].component - The componenent that will be loaded when navigating to this link
+     * @param {string} args.links[].path - The path that should be used to reach said component
+     * @param {Object} args.links[].icon - An icon from the "react-icons" package that will be shown in the menu bar
      */
     constructor(args) {
         super(args);
         this.state = {
+            links: args.links
         };
     }
 
@@ -74,20 +79,6 @@ class GlobalMenuBar extends Component {
     };
 
     /**
-     * An array consisting of the links that will be in the menu bar
-     */
-    links = [
-        {
-            link: "/",
-            icon: AiOutlineDashboard
-        },
-        {
-            link: "/settings/",
-            icon: AiOutlineSetting
-        }
-    ];
-
-    /**
      * Renders the menu bar to the screen
      */
     render() {
@@ -96,12 +87,12 @@ class GlobalMenuBar extends Component {
               &lt;div className="GlobalMenuBar">
                 &lt;ul className="links">
                   {
-                      this.links.map((obj, i) => {
-                          return ( &lt;li key={i}>
-                                     &lt;a href={obj.link}>
+                      this.state.links.map((obj, i) => {
+                          return ( &lt;Link to={obj.path}>
+                                     &lt;li key={i}>
                                        &lt;obj.icon size={this.props.iconSize} />
-                                     &lt;/a>
-                                   &lt;/li> );
+                                     &lt;/li>
+                                   &lt;/Link> );
                       })
                   }
                 &lt;/ul>
