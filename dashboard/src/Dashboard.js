@@ -86,6 +86,10 @@ const chartData3 = {
     ]
 };
 
+/**
+ * The Dashboard component.
+ * This component takes care of creating the dashboard from it's sub-components.
+ */
 function Dashboard() {
     return (
         <div className="Dashboard">

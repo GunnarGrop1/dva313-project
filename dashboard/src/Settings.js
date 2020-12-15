@@ -1,3 +1,8 @@
+
+/**
+ * DELETE LATER. The Settings component.
+ * This component is just used to test the functionality of the react router.
+ */
 function Settings() {
     return (
         <div>
