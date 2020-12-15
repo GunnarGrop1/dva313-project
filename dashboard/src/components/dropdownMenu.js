@@ -9,12 +9,12 @@ import {RiArrowDownSLine} from 'react-icons/ri';
  */
 class Dropdown extends Component {
     /**
-     * @param{Object} args - Properties passed from the caller
-     * @param{boolean} args.showMenu - Defaults as false.
-     * @param{Object} args.menuItems - The menu items that will be shown in the dropdown.
-     * @param{Object[]} args.menuItems[] - An array of items.
-     * @param{string} args.menuItems[].link - The link that the menu item will open.
-     * @param{string} args.menuItems[].text - The text that will be displayed on the menu item.
+     * @param {Object} args - Properties passed from the caller
+     * @param {boolean} args.showMenu - Defaults as false.
+     * @param {Object} args.menuItems - The menu items that will be shown in the dropdown.
+     * @param {Object[]} args.menuItems - An array of items.
+     * @param {string} args.menuItems[].link - The link that the menu item will open.
+     * @param {string} args.menuItems[].text - The text that will be displayed on the menu item.
      */
     constructor(args) {
         super(args);
