@@ -34,7 +34,7 @@
         <ul></ul>
     </div>
     
-    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#render">render</a></li></ul></div></li><li><a href="DashboardMenu.html">DashboardMenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DashboardMenu_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="DashboardMenu.html#render">render</a></li></ul></div></li><li><a href="Dropdown.html">Dropdown</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Dropdown_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Dropdown.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Dropdown.html#render">render</a></li></ul></div></li><li><a href="GlobalMenuBar.html">GlobalMenuBar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GlobalMenuBar_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="GlobalMenuBar.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="GlobalMenuBar.html#render">render</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Settings">Settings</a></li></ul></div>
+    <div class="lnb-api hidden"><h3>Classes</h3><ul><li><a href="Chart.html">Chart</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Chart_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Chart.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Chart.html#changeType">changeType</a></li><li><a href="Chart.html#render">render</a></li></ul></div></li><li><a href="DashboardMenu.html">DashboardMenu</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="DashboardMenu_sub"><div class="member-type">Methods</div><ul class="inner"><li><a href="DashboardMenu.html#render">render</a></li></ul></div></li><li><a href="Dropdown.html">Dropdown</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="Dropdown_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="Dropdown.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="Dropdown.html#render">render</a></li></ul></div></li><li><a href="GlobalMenuBar.html">GlobalMenuBar</a><button type="button" class="hidden toggle-subnav btn btn-link">  <span class="glyphicon glyphicon-plus"></span></button><div class="hidden" id="GlobalMenuBar_sub"><div class="member-type">Members</div><ul class="inner"><li><a href="GlobalMenuBar.html#defaultProps">defaultProps</a></li></ul><div class="member-type">Methods</div><ul class="inner"><li><a href="GlobalMenuBar.html#render">render</a></li></ul></div></li></ul></div><div class="lnb-api hidden"><h3>Global</h3><ul><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Settings">Settings</a></li></ul></div>
 </nav>
 <div id="resizer"></div>
 
@@ -50,7 +50,8 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+import {Line, Pie, Bar} from 'react-chartjs-2';
+import {AiOutlineMenu, AiOutlineClose, AiOutlineBorder, AiOutlineCheckSquare} from 'react-icons/ai';
 
 /**
  * Class to create charts of diffrent types.
@@ -58,6 +59,7 @@ import {Line} from 'react-chartjs-2';
 class Chart extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
+     * @param {Object} args.type - The type of chart to create (Line, Pie, Bar, etc). Chart types are those exposed from react-chartjs-2.
      * @param {Object} args.chartData - Data used to construct the chart.
      * @param {string[]} args.chartData.labels - Labels for the x-axis.
      * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
@@ -68,16 +70,17 @@ class Chart extends Component {
     constructor(args) {
         super(args);
         this.state = {
+            showMenu: false,
+            type: args.type,
             chartData: args.chartData
         };
     }
 
     /**
      * Deafult properties. These can be overridden.
-     * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
+     * @type {{titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
      */
     static defaultProps = {
-        type: Line,
         titleDisplay: true,
         titleText: 'CPU Utilization',
         titleSize: 18,
@@ -87,12 +90,43 @@ class Chart extends Component {
     };
 
     /**
+     * Used to change the type of chart that will be displayed
+     * @param {Object} type - The type of chart (Line, Pie, Bar, etc)
+     */
+    changeType(type) {
+        this.setState({type: type});
+    }
+
+    /**
      * Renders chart to the screen.
      */
     render() {
         return(
             &lt;div className="ChartItem">
-              &lt;this.props.type
+              &lt;button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
+                {this.state.showMenu ? &lt;AiOutlineClose/> : &lt;AiOutlineMenu/> }
+              &lt;/button>
+              {
+                  this.state.showMenu ? (
+                      &lt;div className="Dropdown">
+                        &lt;ul>
+                          &lt;p>Type&lt;/p>
+                          &lt;li onClick={(e) => this.changeType(Line)}>
+                            {this.state.type == Line ? &lt;AiOutlineCheckSquare/> : &lt;AiOutlineBorder/>} Line
+                          &lt;/li>
+                          &lt;li onClick={(e) => this.changeType(Pie)}>
+                            {this.state.type == Pie ? &lt;AiOutlineCheckSquare/> : &lt;AiOutlineBorder/>} Pie
+                          &lt;/li>
+                          &lt;li onClick={(e) => this.changeType(Bar)}>
+                            {this.state.type == Bar ? &lt;AiOutlineCheckSquare/> : &lt;AiOutlineBorder/>} Bar
+                          &lt;/li>
+                        &lt;/ul>
+                      &lt;/div>
+                  ) : (
+                      null
+                  )
+              }
+              &lt;this.state.type
                 data = {this.state.chartData}
                 options = {{
                     title: {
