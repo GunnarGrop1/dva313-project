@@ -2,7 +2,8 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {Line} from 'react-chartjs-2';
+import {Line, Pie, Bar} from 'react-chartjs-2';
+import {AiOutlineMenu, AiOutlineClose, AiOutlineBorder, AiOutlineCheckSquare} from 'react-icons/ai';
 
 /**
  * Class to create charts of diffrent types.
@@ -10,6 +11,7 @@ import {Line} from 'react-chartjs-2';
 class Chart extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
+     * @param {Object} args.type - The type of chart to create (Line, Pie, Bar, etc). Chart types are those exposed from react-chartjs-2.
      * @param {Object} args.chartData - Data used to construct the chart.
      * @param {string[]} args.chartData.labels - Labels for the x-axis.
      * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
@@ -20,16 +22,17 @@ class Chart extends Component {
     constructor(args) {
         super(args);
         this.state = {
+            showMenu: false,
+            type: args.type,
             chartData: args.chartData
         };
     }
 
     /**
      * Deafult properties. These can be overridden.
-     * @type {{type: Object, titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
+     * @type {{titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
      */
     static defaultProps = {
-        type: Line,
         titleDisplay: true,
         titleText: 'CPU Utilization',
         titleSize: 18,
@@ -39,12 +42,43 @@ class Chart extends Component {
     };
 
     /**
+     * Used to change the type of chart that will be displayed
+     * @param {Object} type - The type of chart (Line, Pie, Bar, etc)
+     */
+    changeType(type) {
+        this.setState({type: type});
+    }
+
+    /**
      * Renders chart to the screen.
      */
     render() {
         return(
             <div className="ChartItem">
-              <this.props.type
+              <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
+                {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
+              </button>
+              {
+                  this.state.showMenu ? (
+                      <div className="Dropdown">
+                        <ul>
+                          <p>Type</p>
+                          <li onClick={(e) => this.changeType(Line)}>
+                            {this.state.type == Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
+                          </li>
+                          <li onClick={(e) => this.changeType(Pie)}>
+                            {this.state.type == Pie ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Pie
+                          </li>
+                          <li onClick={(e) => this.changeType(Bar)}>
+                            {this.state.type == Bar ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Bar
+                          </li>
+                        </ul>
+                      </div>
+                  ) : (
+                      null
+                  )
+              }
+              <this.state.type
                 data = {this.state.chartData}
                 options = {{
                     title: {
