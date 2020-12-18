@@ -93,11 +93,17 @@ const chartData3 = {
 function Dashboard() {
     return (
         <div className="Dashboard">
-            <DashboardMenu />
-            <div className="ChartContainer">
-              <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-              <Chart chartData={chartData2} type={Line} />
-              <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+          <DashboardMenu />
+          <div className="ChartContainer">
+            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+            <Chart chartData={chartData2} type={Line} />
+            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+            <Chart chartData={chartData2} type={Line} />
+            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+            <Chart chartData={chartData2} type={Line} />
+            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
             </div>
         </div>
     );
