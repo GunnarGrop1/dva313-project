@@ -1,8 +1,10 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Home | Front-end docs</title>
+    <title>Source: components/dropdownMenu.js | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -42,19 +44,77 @@
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// @ts-check
 
+// @ts-ignore
+import React, {Component} from 'react';
+import {RiArrowDownSLine} from 'react-icons/ri';
 
+/**
+ * A generic dropdown menu which takes it's text and menu items as properties in the constructor.
+ */
+class Dropdown extends Component {
+    /**
+     * @param {Object} args - Properties passed from the caller
+     * @param {boolean} args.showMenu - Defaults as false.
+     * @param {Object} args.menuItems - The menu items that will be shown in the dropdown.
+     * @param {Object[]} args.menuItems - An array of items.
+     * @param {string} args.menuItems[].link - The link that the menu item will open.
+     * @param {string} args.menuItems[].text - The text that will be displayed on the menu item.
+     */
+    constructor(args) {
+        super(args);
+        this.state = {
+            showMenu: false,
+            menuItems: args.menuItems
+        };
+    }
 
+    /**
+     * Deafult properties. These can be overridden.
+     * @type{{text: string}}
+     */
+    static defaultProps = {
+        text: "Dropdown menu"
+    }
 
+    /**
+     * Renders the dropdown to the screen
+     */
+    render() {
+        return(
+            &lt;div>
+              &lt;button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>{this.props.text}  &lt;RiArrowDownSLine />&lt;/button>
+              {
+                  this.state.showMenu ? (
+                          &lt;div className="Dropdown">
+                            &lt;ul>
+                              {
+                                  this.state.menuItems.map((obj, i) => {
+                                      return ( &lt;li key={i}>
+                                                 &lt;a href={obj.link}>
+                                                   {obj.text}
+                                                 &lt;/a>
+                                               &lt;/li> );
+                                  })
+                              }
+                            &lt;/ul>
+                          &lt;/div>
+                      ) : (
+                          null
+                      )
+              }
+            &lt;/div>
+        );
+    }
+}
 
-
-
-
-
-    
-
-
-
+export default Dropdown;
+</code></pre>
+        </article>
+    </section>
 
 
 
@@ -71,7 +131,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'package:undefined_sub'.replace(/"/g, '_');
+        var id = '_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

@@ -1,4 +1,5 @@
 <?php
+require '..\\Login\\validateLogin.php';
 require_once '..\\dbconn\\dbConn.php';
 
 $result = mysqli_query($conn, "SELECT UserName FROM user");

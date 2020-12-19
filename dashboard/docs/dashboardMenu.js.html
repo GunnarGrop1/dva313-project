@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: globalMenuBar.js | Front-end docs</title>
+    <title>Source: dashboardMenu.js | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -50,59 +50,50 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import Dropdown from './dropdownMenu';
 
 /**
- * Creates a menu bar with links
+ * A specific menu for the dashboard
  */
-class GlobalMenuBar extends Component {
+class DashboardMenu extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
-     * @param {Object[]} args.links - An array of links
-     * @param {Object} args.links[].component - The componenent that will be loaded when navigating to this link
-     * @param {string} args.links[].path - The path that should be used to reach said component
-     * @param {Object} args.links[].icon - An icon from the "react-icons" package that will be shown in the menu bar
      */
     constructor(args) {
         super(args);
         this.state = {
-            links: args.links
         };
     }
 
-    /**
-     * Deafult properties. These can be overridden.
-     * @type {{iconSize: string}}
-     */
-    static defaultProps = {
-        iconSize: '40'
-    };
+    // TODO: fix proper values
+    list = [
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        },
+        {
+            link: "/whatever/",
+            text: "Menu item 1"
+        }
+    ];
 
     /**
      * Renders the menu bar to the screen
      */
     render() {
         return(
-            &lt;>
-              &lt;div className="GlobalMenuBar">
-                &lt;ul className="links">
-                  {
-                      this.state.links.map((obj, i) => {
-                          return ( &lt;Link to={obj.path}>
-                                     &lt;li key={i}>
-                                       &lt;obj.icon size={this.props.iconSize} />
-                                     &lt;/li>
-                                   &lt;/Link> );
-                      })
-                  }
-                &lt;/ul>
-              &lt;/div>
-            &lt;/>
+            &lt;div className="DashboardMenu">
+              &lt;Dropdown text="Time span" menuItems={this.list}/>
+            &lt;/div>
         );
     }
 }
 
-export default GlobalMenuBar;
+export default DashboardMenu;
 </code></pre>
         </article>
     </section>

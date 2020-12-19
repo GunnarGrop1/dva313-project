@@ -1,4 +1,5 @@
 <?php
+require '..\\Login\\validateLogin.php';
 require 'functions.php';
 $id = 'cpuid';
 $average = 'average metrics';

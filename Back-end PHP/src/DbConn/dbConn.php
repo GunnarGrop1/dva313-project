@@ -1,9 +1,9 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "123";
 $port = 3306;
-$dbname = "justAhome";
+$dbname = "cloudnative";
 $conn = mysqli_connect($servername, $username, $password, $dbname, $port);
 
 if (mysqli_connect_errno())

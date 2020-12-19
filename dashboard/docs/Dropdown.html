@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Class: GlobalMenuBar | Front-end docs</title>
+    <title>Class: Dropdown | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -46,9 +46,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>GlobalMenuBar<span class="signature">(args)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Dropdown<span class="signature">(args)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Creates a menu bar with links</p></div>
+            <div class="class-description"><p>A generic dropdown menu which takes it's text and menu items as properties in the constructor.</p></div>
         
     
 </header>
@@ -61,14 +61,14 @@
 
 <dt>
     
-        <h4 class="name" id="GlobalMenuBar">
+        <h4 class="name" id="Dropdown">
             
-                new <span class="type-signature"></span>GlobalMenuBar<span class="signature">(args)</span><span class="type-signature"></span>
+                new <span class="type-signature"></span>Dropdown<span class="signature">(args)</span><span class="type-signature"></span>
                 
             
             <div class="container-source members">
-                <code><a href="components_globalMenuBar.js.html">components/globalMenuBar.js</a></code>,
-                <code><a href="components_globalMenuBar.js.html#line10">line 10</a></code>
+                <code><a href="components_dropdownMenu.js.html">components/dropdownMenu.js</a></code>,
+                <code><a href="components_dropdownMenu.js.html#line10">line 10</a></code>
             </div>
             
         </h4>
@@ -128,7 +128,7 @@
 
             
 
-            <td class="description last"><p>Properties passed from caller.</p>
+            <td class="description last"><p>Properties passed from the caller</p>
                 <h6>Properties</h6>
                 
 <table class="params">
@@ -153,7 +153,53 @@
 
         <tr>
             
-                <td class="name"><code>links</code></td>
+                <td class="name"><code>showMenu</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Defaults as false.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>menuItems</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The menu items that will be shown in the dropdown.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>menuItems</code></td>
             
 
             <td class="type">
@@ -169,7 +215,7 @@
 
             
 
-            <td class="description last"><p>An array of links</p>
+            <td class="description last"><p>An array of items.</p>
                 <h6>Properties</h6>
                 
 <table class="params">
@@ -194,30 +240,7 @@
 
         <tr>
             
-                <td class="name"><code>component</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>The componenent that will be loaded when navigating to this link</p></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>path</code></td>
+                <td class="name"><code>link</code></td>
             
 
             <td class="type">
@@ -233,20 +256,20 @@
 
             
 
-            <td class="description last"><p>The path that should be used to reach said component</p></td>
+            <td class="description last"><p>The link that the menu item will open.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>icon</code></td>
+                <td class="name"><code>text</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">string</span>
 
 
             
@@ -256,7 +279,7 @@
 
             
 
-            <td class="description last"><p>An icon from the &quot;react-icons&quot; package that will be shown in the menu bar</p></td>
+            <td class="description last"><p>The text that will be displayed on the menu item.</p></td>
         </tr>
 
     
@@ -357,11 +380,11 @@
 
 <dt>
 <h4 class="name" id="defaultProps">
-    <span class="type-signature"></span>defaultProps<span class="type-signature"> :Object</span>
+    <span class="type-signature"></span>defaultProps<span class="type-signature"></span>
     
     <div class="container-source members">
-        <code><a href="components_globalMenuBar.js.html">components/globalMenuBar.js</a></code>,
-        <code><a href="components_globalMenuBar.js.html#line29">line 29</a></code>
+        <code><a href="components_dropdownMenu.js.html">components/dropdownMenu.js</a></code>,
+        <code><a href="components_dropdownMenu.js.html#line31">line 31</a></code>
     </div>
     
 </h4>
@@ -376,16 +399,6 @@
     
 
     <!--
-    
-        <h5>Type:</h5>
-        <ul>
-            <li>
-                
-<span class="param-type">Object</span>
-
-
-            </li>
-        </ul>
     
     -->
 
@@ -448,8 +461,8 @@
                 
             
             <div class="container-source members">
-                <code><a href="components_globalMenuBar.js.html">components/globalMenuBar.js</a></code>,
-                <code><a href="components_globalMenuBar.js.html#line36">line 36</a></code>
+                <code><a href="components_dropdownMenu.js.html">components/dropdownMenu.js</a></code>,
+                <code><a href="components_dropdownMenu.js.html#line38">line 38</a></code>
             </div>
             
         </h4>
@@ -461,7 +474,7 @@
 
     
     <div class="description">
-        <p>Renders the menu bar to the screen</p>
+        <p>Renders the dropdown to the screen</p>
     </div>
     
 
@@ -551,7 +564,7 @@
 <script src="scripts/linenumber.js"></script>
 
     <script>
-        var id = 'GlobalMenuBar_sub'.replace(/"/g, '_');
+        var id = 'Dropdown_sub'.replace(/"/g, '_');
         var selectedApi = document.getElementById(id); // do not use jquery selector
         var $selectedApi = $(selectedApi);
 

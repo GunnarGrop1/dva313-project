@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Source: globalMenuBar.js | Front-end docs</title>
+    <title>Source: dropdownMenu.js | Front-end docs</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -50,59 +50,68 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {RiArrowDownSLine} from 'react-icons/ri';
 
 /**
- * Creates a menu bar with links
+ * A generic dropdown menu which takes it's text and menu items as properties in the constructor.
  */
-class GlobalMenuBar extends Component {
+class Dropdown extends Component {
     /**
-     * @param {Object} args - Properties passed from caller.
-     * @param {Object[]} args.links - An array of links
-     * @param {Object} args.links[].component - The componenent that will be loaded when navigating to this link
-     * @param {string} args.links[].path - The path that should be used to reach said component
-     * @param {Object} args.links[].icon - An icon from the "react-icons" package that will be shown in the menu bar
+     * @param {Object} args - Properties passed from the caller
+     * @param {boolean} args.showMenu - Defaults as false.
+     * @param {Object} args.menuItems - The menu items that will be shown in the dropdown.
+     * @param {Object[]} args.menuItems - An array of items.
+     * @param {string} args.menuItems[].link - The link that the menu item will open.
+     * @param {string} args.menuItems[].text - The text that will be displayed on the menu item.
      */
     constructor(args) {
         super(args);
         this.state = {
-            links: args.links
+            showMenu: false,
+            menuItems: args.menuItems
         };
     }
 
     /**
      * Deafult properties. These can be overridden.
-     * @type {{iconSize: string}}
+     * @type{{text: string}}
      */
     static defaultProps = {
-        iconSize: '40'
-    };
+        text: "Dropdown menu"
+    }
 
     /**
-     * Renders the menu bar to the screen
+     * Renders the dropdown to the screen
      */
     render() {
         return(
-            &lt;>
-              &lt;div className="GlobalMenuBar">
-                &lt;ul className="links">
-                  {
-                      this.state.links.map((obj, i) => {
-                          return ( &lt;Link to={obj.path}>
-                                     &lt;li key={i}>
-                                       &lt;obj.icon size={this.props.iconSize} />
-                                     &lt;/li>
-                                   &lt;/Link> );
-                      })
-                  }
-                &lt;/ul>
-              &lt;/div>
-            &lt;/>
+            &lt;div>
+              &lt;button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>{this.props.text}  &lt;RiArrowDownSLine />&lt;/button>
+              {
+                  this.state.showMenu ? (
+                          &lt;div className="Dropdown">
+                            &lt;ul>
+                              {
+                                  this.state.menuItems.map((obj, i) => {
+                                      return ( &lt;li key={i}>
+                                                 &lt;a href={obj.link}>
+                                                   {obj.text}
+                                                 &lt;/a>
+                                               &lt;/li> );
+                                  })
+                              }
+                            &lt;/ul>
+                          &lt;/div>
+                      ) : (
+                          null
+                      )
+              }
+            &lt;/div>
         );
     }
 }
 
-export default GlobalMenuBar;
+export default Dropdown;
 </code></pre>
         </article>
     </section>

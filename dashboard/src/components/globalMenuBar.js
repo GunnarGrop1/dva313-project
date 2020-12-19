@@ -2,7 +2,7 @@
 
 // @ts-ignore
 import React, {Component} from 'react';
-import {AiOutlineDashboard, AiOutlineSetting} from 'react-icons/ai';
+import {Link} from 'react-router-dom';
 
 /**
  * Creates a menu bar with links
@@ -10,34 +10,25 @@ import {AiOutlineDashboard, AiOutlineSetting} from 'react-icons/ai';
 class GlobalMenuBar extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
+     * @param {Object[]} args.links - An array of links
+     * @param {Object} args.links[].component - The componenent that will be loaded when navigating to this link
+     * @param {string} args.links[].path - The path that should be used to reach said component
+     * @param {Object} args.links[].icon - An icon from the "react-icons" package that will be shown in the menu bar
      */
     constructor(args) {
         super(args);
         this.state = {
+            links: args.links
         };
     }
 
     /**
-     * Deafult values for menu properties. These values can be overridden.
+     * Deafult properties. These can be overridden.
      * @type {{iconSize: string}}
      */
     static defaultProps = {
         iconSize: '40'
     };
-
-    /**
-     * An array consisting of the links that will be in the menu bar
-     */
-    links = [
-        {
-            link: "/",
-            icon: AiOutlineDashboard
-        },
-        {
-            link: "/settings/",
-            icon: AiOutlineSetting
-        }
-    ];
 
     /**
      * Renders the menu bar to the screen
@@ -48,12 +39,12 @@ class GlobalMenuBar extends Component {
               <div className="GlobalMenuBar">
                 <ul className="links">
                   {
-                      this.links.map((obj, i) => {
-                          return ( <li key={i}>
-                                     <a href={obj.link}>
+                      this.state.links.map((obj, i) => {
+                          return ( <Link to={obj.path}>
+                                     <li key={i}>
                                        <obj.icon size={this.props.iconSize} />
-                                     </a>
-                                   </li> );
+                                     </li>
+                                   </Link> );
                       })
                   }
                 </ul>

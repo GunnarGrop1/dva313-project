@@ -1,13 +1,18 @@
 .App {
-    position: fixed;
     padding: 0;
     margin: 0;
 }
 
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .GlobalMenuBar {
-    position: relative;
+    position: fixed;
     float: left;
-    height: 100vh;
+    width: 2rem;
+    height: 100%;
 
     background-color: #222222;
 
@@ -18,10 +23,11 @@
     border-right-color: #717171;
 
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
+    align-items: center;
 
-    z-index: 1;
+    z-index: 99;
 }
 
 .GlobalMenuBar .links {
@@ -30,23 +36,110 @@
     list-style-type: none;
 }
 
-.GlobalMenuBar .links li a {
-    color: #FFFFFF;
-    text-decoration: none;
+.DashboardMenu {
+    position: fixed;
+    float: top;
+    width: 100%;
+    height: 3rem;
+    background: #151515;
+
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 98;
+}
+
+.DashboardMenu  button {
+    background: #222222;
+    padding: 5px;
+    margin: 10px;
+
+    font-weight: bold;
+    color: white;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    transition-duration: 0.1s;
+
+    display: flex;
+    align-items: center;
+}
+
+.DashboardMenu button:hover {
+    filter: brightness(85%);
+}
+
+.DashboardMenu .Dropdown {
+    position: absolute;
+    background: #222222;
+    margin-top: -10px;
+
+    color: white;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+}
+
+.DashboardMenu .Dropdown ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    border-width: 0.1px;
+    border-style: solid;
+    border-color: #717171;
+    border-radius: 2px;
+    border-bottom: none;
+
+    white-space: nowrap;
+}
+
+.DashboardMenu .Dropdown ul li {
+    padding: 10px;
+    margin: 0;
+
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+    transition-duration: 0.1s;
+}
+
+.DashboardMenu .Dropdown ul li:hover {
+    filter: brightness(50%);
 }
 
 .ChartContainer {
-    position: relative;
-    float: left;
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .ChartContainer .ChartItem {
     background-color: #222222;
     width: 500px;
+    max-width: 1000px;
     margin: 10px;
     padding: 10px;
 
@@ -56,4 +149,69 @@
     border-width: 0.1px;
     border-style: solid;
     border-color: #717171;
+
+    flex: 2;
+}
+
+.ChartContainer .ChartItem button {
+    position: absolute;
+    float: right;
+    background: none;
+    padding: 0;
+    margin: 0;
+
+    font-weight: bold;
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition-duration: 0.1s;
+
+    z-index: 3;
+}
+
+.ChartContainer .ChartItem .Dropdown {
+    position: absolute;
+    float: right;
+    background: #151515;
+    width: 5rem;
+
+    margin: -10px;
+    padding: 10px;
+
+    border-radius: 2px 0 2px 0;
+    border-width: 0 0.1px 0.1px 0;
+    border-style: solid;
+    border-color: #717171;
+
+    z-index: 2;
+}
+
+.ChartContainer .ChartItem .Dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 1.5rem;
+    margin: 0;
+}
+
+.ChartContainer .ChartItem .Dropdown ul p {
+    margin: 0;
+    margin-bottom: 0.5rem;
+    border-bottom-width: 0.1px;
+    border-bottom-style: solid;
+    border-bottom-color: #717171;
+}
+
+.ChartContainer .ChartItem .Dropdown ul li {
+    cursor: pointer;
+    transition-duration: 0.1s;
+
+    display: flex;
+    align-items: center;
+}
+
+.ChartContainer .ChartItem .Dropdown ul li:hover {
+    filter: brightness(50%);
 }
