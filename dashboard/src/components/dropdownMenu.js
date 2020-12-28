@@ -32,13 +32,24 @@ class Dropdown extends Component {
         text: "Dropdown menu"
     }
 
+    toggleFunc = this.toggleVisibility.bind(this);
+
+    toggleVisibility() {
+        this.setState(state => ({showMenu: !state.showMenu}))
+        document.removeEventListener("click", this.toggleFunc);
+    }
+
     /**
      * Renders the dropdown to the screen
      */
     render() {
         return(
             <div>
-              <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>{this.props.text}  <RiArrowDownSLine /></button>
+              <button onClick={(e) =>  {
+                this.setState(state => ({showMenu: !state.showMenu}))
+                e.stopPropagation(); //needed to prevent the newly added event triggering immediately.
+                document.addEventListener("click", this.toggleFunc);
+                }}>{this.props.text}  <RiArrowDownSLine /></button>
               {
                   this.state.showMenu ? (
                           <div className="Dropdown">

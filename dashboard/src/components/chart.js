@@ -26,6 +26,11 @@ class Chart extends Component {
             type: args.type,
             chartData: args.chartData
         };
+
+        //ugly but works, they are used to check so that if we click on certain items inside the menu it shouldn't close. In case of missclicks and such.
+        this.dropDownRef = React.createRef();
+        this.pRef = React.createRef();
+        this.ulRef = React.createRef();
     }
 
     /**
@@ -41,6 +46,15 @@ class Chart extends Component {
         legendPosition: 'bottom',
     };
 
+    toggleFunc = this.toggleVisibility.bind(this);
+
+    toggleVisibility(event) {
+        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
+          this.setState(state => ({showMenu: !state.showMenu}))
+          document.removeEventListener("click", this.toggleFunc);
+        }
+    }
+
     /**
      * Used to change the type of chart that will be displayed
      * @param {Object} type - The type of chart (Line, Pie, Bar, etc)
@@ -55,14 +69,18 @@ class Chart extends Component {
     render() {
         return(
             <div className="ChartItem">
-              <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
+              <button onClick={(e) => {
+                this.setState(state => ({showMenu: !state.showMenu}))
+                e.stopPropagation(); //needed to prevent the newly added event triggering immediately.
+                document.addEventListener("click", this.toggleFunc);
+            }}>
                 {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
               </button>
               {
                   this.state.showMenu ? (
-                      <div className="Dropdown">
-                        <ul>
-                          <p>Type</p>
+                      <div ref={this.dropDownRef} className="Dropdown">
+                        <ul ref={this.ulRef}>
+                          <p ref={this.pRef}>Type</p>
                           <li onClick={(e) => this.changeType(Line)}>
                             {this.state.type == Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
                           </li>
