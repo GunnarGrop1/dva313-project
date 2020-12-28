@@ -49,7 +49,7 @@ class Chart extends Component {
     toggleFunc = this.toggleVisibility.bind(this);
 
     toggleVisibility(event) {
-        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
+        if(this.state.showMenu && event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
           this.setState(state => ({showMenu: !state.showMenu}))
           document.removeEventListener("click", this.toggleFunc);
         }
