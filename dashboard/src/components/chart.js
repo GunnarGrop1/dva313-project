@@ -49,8 +49,11 @@ class Chart extends Component {
     toggleFunc = this.toggleVisibility.bind(this);
 
     toggleVisibility(event) {
-        if(this.state.showMenu && event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
+        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
           this.setState(state => ({showMenu: !state.showMenu}))
+        }
+
+        if(!this.state.showMenu) {
           document.removeEventListener("click", this.toggleFunc);
         }
     }
@@ -69,12 +72,7 @@ class Chart extends Component {
     render() {
         return(
             <div className="ChartItem">
-              <button onClick={(e) => {
-                this.setState(state => ({showMenu: !state.showMenu}))
-                e.stopPropagation(); //needed to prevent the newly added event triggering immediately.
-                document.addEventListener("click", this.toggleFunc);
-            }}>
-                {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
+              <button onClick={() => {document.addEventListener("click", this.toggleFunc);}}> {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
               </button>
               {
                   this.state.showMenu ? (
