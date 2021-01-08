@@ -13,7 +13,7 @@ $result = mysqli_query($conn, "SELECT password FROM user WHERE username = '".$us
 
 //if there was no result
 if($result == null || $result->num_rows == 0) {
-  //give an error somehow
+  header('Location: ' . $_SERVER['HTTP_REFERER']); //would be great to return some info so that we can put like "invalid login etc"
   die();
 }
 
@@ -23,7 +23,6 @@ if (password_verify($password, $hashedPassword->password))
 {
   session_start();
   $_SESSION['loggedIn'] = true;
-  $_SESSION['username'] = $username;
 }
 
 header('Location: ' . $_SERVER['HTTP_REFERER']);
