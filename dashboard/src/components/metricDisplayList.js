@@ -7,11 +7,12 @@ async function postData(url = '', data = {}) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      },  
       body: new URLSearchParams({
           metric: data.metric,
           status: data.status
-      })
+      }),
+      credentials: 'include'
     });
   }
 
@@ -46,7 +47,7 @@ class MetricDisplayList extends React.Component {
         this.state = {apiData: []}
     }
     async componentDidMount() {
-        await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php')
+        await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
         .then(response => response.json())
             .then(data => this.setState({apiData: data}));
     }

@@ -1,7 +1,5 @@
 <?php
 require_once '..\\Login\\validateLogin.php';
-
-header("Access-Control-Allow-Origin: *"); 
 require_once '..\\dbconn\\dbConn.php';
 
 if(!isset($_POST['metric']) || !isset($_POST['status'])) {
