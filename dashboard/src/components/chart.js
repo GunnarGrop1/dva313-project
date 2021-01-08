@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {Line, Pie, Bar} from 'react-chartjs-2';
 import {AiOutlineMenu, AiOutlineClose, AiOutlineBorder, AiOutlineCheckSquare} from 'react-icons/ai';
+import { makePostRequest } from '../ajax.js';
 
 /**
  * Class to create charts of diffrent types.
@@ -26,11 +27,6 @@ class Chart extends Component {
             type: args.type,
             chartData: args.chartData
         };
-
-        //ugly but works, they are used to check so that if we click on certain items inside the menu it shouldn't close. In case of missclicks and such.
-        this.dropDownRef = React.createRef();
-        this.pRef = React.createRef();
-        this.ulRef = React.createRef();
     }
 
     /**
@@ -46,18 +42,6 @@ class Chart extends Component {
         legendPosition: 'bottom',
     };
 
-    toggleFunc = this.toggleVisibility.bind(this);
-
-    toggleVisibility(event) {
-        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
-          this.setState(state => ({showMenu: !state.showMenu}))
-        }
-
-        if(!this.state.showMenu) {
-          document.removeEventListener("click", this.toggleFunc);
-        }
-    }
-
     /**
      * Used to change the type of chart that will be displayed
      * @param {Object} type - The type of chart (Line, Pie, Bar, etc)
@@ -66,19 +50,65 @@ class Chart extends Component {
         this.setState({type: type});
     }
 
+    updateGraph() {
+
+      makePostRequest().then(result =>{
+        var temp = JSON.parse(result.data);
+        var time = temp["MetricDataResults"][0]["Timestamps"];
+        let timeFinal = [];
+
+        for (var i = 0; i < time.length; i++)
+        {
+          var timeAsString = time[i];
+          var tPos = timeAsString.indexOf("T");
+          timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
+        }
+
+        this.setState({
+            chartData:  {
+                labels: timeFinal,
+                datasets: [
+                    {
+                        label: 'Mb/s',
+                        data: temp["MetricDataResults"][0]["Values"],
+                        backgroundColor: [
+                            '#54ffdd',
+                            '#6cffa9',
+                            '#fdff78',
+                            '#ff8742',
+                            '#ff7ef2',
+                            '#ffc0c6',
+                            '#c7d6ff'
+                        ]
+                    }
+                ]
+            }
+        });
+        console.log("Chartupdate:", temp["MetricDataResults"][0])
+      });
+}
+
+  testUpdateGraph()
+  {
+    console.log("Updating every th second");
+  }
+
+
+
     /**
      * Renders chart to the screen.
      */
     render() {
         return(
             <div className="ChartItem">
-              <button onClick={() => {document.addEventListener("click", this.toggleFunc);}}> {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
+              <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
+                {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
               </button>
               {
                   this.state.showMenu ? (
-                      <div ref={this.dropDownRef} className="Dropdown">
-                        <ul ref={this.ulRef}>
-                          <p ref={this.pRef}>Type</p>
+                      <div className="Dropdown">
+                        <ul>
+                          <p>Type</p>
                           <li onClick={(e) => this.changeType(Line)}>
                             {this.state.type == Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
                           </li>
@@ -88,6 +118,10 @@ class Chart extends Component {
                           <li onClick={(e) => this.changeType(Bar)}>
                             {this.state.type == Bar ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Bar
                           </li>
+                          <p>Temp</p>
+                          <li onClick={(e) => this.updateGraph()}>
+                            Update
+                            </li>
                         </ul>
                       </div>
                   ) : (
@@ -113,5 +147,4 @@ class Chart extends Component {
         );
     }
 }
-
 export default Chart;

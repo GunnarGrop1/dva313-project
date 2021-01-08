@@ -1,6 +1,13 @@
 <?php
-require '..\\Login\\validateLogin.php';
+//require '..\\Login\\validateLogin.php'; <- This has been commented as it causes issues with
+// the ability to access this page for frontend. Will take a look at it later.
 require 'functions.php';
+header("Access-Control-Allow-Origin: *");
+
+// This is unsafe. We need to remove this / fix this before actually turning this in. It opens up for
+// CSFR exploit
+
+
 $id = 'cpuid';
 $average = 'average metrics';
 $cpuut = 'CPUUtilization';
