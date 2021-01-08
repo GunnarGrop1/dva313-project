@@ -4,9 +4,7 @@ import LoginPanel from './components/loginPanel';
 import Cookies from 'js-cookie';
 
 function Settings() {
-    let session = Cookies.get('PHPSESSID');
-    let element = session != null && session ? <MetricDisplayList /> : <LoginPanel />;
-    console.log("The value of cookie is:" + Cookies.get('PHPSESSID'))
+    let element = Cookies.get('PHPSESSID') ? <MetricDisplayList /> : <LoginPanel />;
     
     return (
         <div id="settingsContainer">
