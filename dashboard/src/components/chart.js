@@ -51,44 +51,6 @@ class Chart extends Component {
         this.setState({type: type});
     }
 
-    updateGraph() {
-
-        makePostRequest().then(result =>{
-            var temp = result.data;
-            var time = temp["MetricDataResults"][0]["Timestamps"];
-            let timeFinal = [];
-
-            for (var i = 0; i < time.length; i++)
-            {
-                var timeAsString = time[i];
-                var tPos = timeAsString.indexOf("T");
-                timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
-            }
-
-            this.setState({
-                chartData:  {
-                    labels: timeFinal,
-                    datasets: [
-                        {
-                            label: 'Mb/s',
-                            data: temp["MetricDataResults"][0]["Values"],
-                            backgroundColor: [
-                                '#54ffdd',
-                                '#6cffa9',
-                                '#fdff78',
-                                '#ff8742',
-                                '#ff7ef2',
-                                '#ffc0c6',
-                                '#c7d6ff'
-                            ]
-                        }
-                    ]
-                }
-            });
-            console.log("Chartupdate:", temp["MetricDataResults"][0])
-        });
-    }
-
     testUpdateGraph()
     {
         console.log("Updating every th second");
@@ -98,6 +60,9 @@ class Chart extends Component {
         this.setState(state => ({hidden: !state.hidden}));
     }
 
+    componentWillReceiveProps(props) {
+        this.setState({ chartData: props.chartData })
+      }
     /**
      * Renders chart to the screen.
      */

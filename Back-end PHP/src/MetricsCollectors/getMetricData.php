@@ -3,9 +3,11 @@
 // the ability to access this page for frontend. Will take a look at it later.
 require 'functions.php';
 header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
 
 // This is unsafe. We need to remove this / fix this before actually turning this in. It opens up for
-// CSFR exploit
+// CSRF exploit
 
 
 $id = 'cpuid';

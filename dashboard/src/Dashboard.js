@@ -81,33 +81,6 @@ const chartData2 = {
     ]
 };
 
-const chartData3 = {
-    labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-    datasets: [
-        {
-            label: 'Mb/s',
-            data: [
-                99,
-                87,
-                86,
-                67,
-                55,
-                23,
-                28
-            ],
-            backgroundColor: [
-                '#54ffdd',
-                '#6cffa9',
-                '#fdff78',
-                '#ff8742',
-                '#ff7ef2',
-                '#ffc0c6',
-                '#c7d6ff'
-            ]
-        }
-    ]
-};
-
 /**
  * The Dashboard component.
  * This component takes care of creating the dashboard from it's sub-components.
@@ -116,8 +89,56 @@ class Dashboard extends Component {
     constructor(args) {
         super(args);
         this.state = {
+          chartData : []
             //state
         };
+    }
+
+    componentDidMount(){
+      setInterval(
+        () => this.updateWhatEver(), 5000
+      );
+    }
+
+    updateWhatEver()
+    {
+      var temp;
+        makePostRequest("id", "average metrics", "CPUUtilization", "AWS/EC2", "300", "Average", "-20 minutes", "now").then(result =>{
+            temp = result.data;
+            var time = temp["MetricDataResults"][0]["Timestamps"];
+            let timeFinal = [];
+
+            for (var i = 0; i < time.length; i++)
+            {
+                var timeAsString = time[i];
+                var tPos = timeAsString.indexOf("T");
+                timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
+            }
+            console.log("this is before setstate", temp);
+
+            this.setState({
+                chartData:  {
+                    labels: timeFinal,
+                    datasets: [
+                        {
+                            label: '%',
+                            data: temp["MetricDataResults"][0]["Values"],
+                            backgroundColor: [
+                                '#54ffdd',
+                                '#6cffa9',
+                                '#fdff78',
+                                '#ff8742',
+                                '#ff7ef2',
+                                '#ffc0c6',
+                                '#c7d6ff'
+                            ]
+                        }
+                    ]
+                }
+            });
+        });
+        console.log("Interval testing");
+        console.log(temp);
     }
 
     render() {
@@ -125,19 +146,13 @@ class Dashboard extends Component {
             <div className="Dashboard">
               <DashboardMenu />
               <div className="ChartContainer">
-                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-                <Chart chartData={chartData2} type={Line} />
-                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-                <Chart chartData={chartData2} type={Line} />
-                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-                <Chart chartData={chartData2} type={Line} />
-                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+                <Chart chartData={this.state.chartData} type={Line} titleText='RAM Usage' />
+
               </div>
             </div>
         );
     }
+
 }
 
 export default Dashboard;
