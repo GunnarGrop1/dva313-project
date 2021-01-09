@@ -2,6 +2,7 @@ import Chart from './components/chart';
 import {Line, Bar, Pie} from 'react-chartjs-2';
 import DashboardMenu from './components/dashboardMenu';
 import { makePostRequest } from './ajax.js';
+import { Component } from 'react';
 var chartData1;
 makePostRequest().then(result =>{
   //console.log(`${JSON.stringify(result)}`);
@@ -112,23 +113,32 @@ const chartData3 = {
  * The Dashboard component.
  * This component takes care of creating the dashboard from it's sub-components.
  */
-function Dashboard() {
-    return (
-        <div className="Dashboard">
-          <DashboardMenu />
-          <div className="ChartContainer">
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+class Dashboard extends Component {
+    constructor(args) {
+        super(args);
+        this.state = {
+            //state
+        };
+    }
+
+    render() {
+        return (
+            <div className="Dashboard">
+              <DashboardMenu />
+              <div className="ChartContainer">
+                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+                <Chart chartData={chartData2} type={Line} />
+                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+                <Chart chartData={chartData2} type={Line} />
+                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+                <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
+                <Chart chartData={chartData2} type={Line} />
+                <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+              </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
 export default Dashboard;
