@@ -1,12 +1,14 @@
+import './settings.css';
+import MetricDisplayList from './components/metricDisplayList';
+import LoginPanel from './components/loginPanel';
+import Cookies from 'js-cookie';
 
-/**
- * DELETE LATER. The Settings component.
- * This component is just used to test the functionality of the react router.
- */
 function Settings() {
+    let element = Cookies.get('PHPSESSID') ? <MetricDisplayList /> : <LoginPanel />;
+    
     return (
-        <div>
-          <h3>Settings</h3>
+        <div id="settingsContainer">
+            {element}
         </div>
     );
 }

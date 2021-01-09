@@ -1,112 +1,84 @@
 import Chart from './components/chart';
 import {Line, Bar, Pie} from 'react-chartjs-2';
 import DashboardMenu from './components/dashboardMenu';
-
-const chartData1 = {
-    labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-    datasets: [
-        {
-            label: 'MB',
-            data: [
-                0,
-                12,
-                20,
-                47,
-                5,
-                18,
-                36
-            ],
-            backgroundColor: [
-                '#54ffdd'
-            ]
-        }
-    ]
-};
-
-const chartData2 = {
-    labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-    datasets: [
-        {
-            label: 'Core 1',
-            data: [
-                99,
-                87,
-                86,
-                67,
-                55,
-                23,
-                28
-            ],
-            backgroundColor: [
-                '#54ffdd',
-            ]
-        },
-        {
-            label: 'Core 2',
-            data: [
-                0,
-                12,
-                20,
-                47,
-                5,
-                18,
-                36
-            ],
-            backgroundColor: [
-                '#ebb'
-            ]
-        }
-    ]
-};
-
-const chartData3 = {
-    labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-    datasets: [
-        {
-            label: 'Mb/s',
-            data: [
-                99,
-                87,
-                86,
-                67,
-                55,
-                23,
-                28
-            ],
-            backgroundColor: [
-                '#54ffdd',
-                '#6cffa9',
-                '#fdff78',
-                '#ff8742',
-                '#ff7ef2',
-                '#ffc0c6',
-                '#c7d6ff'
-            ]
-        }
-    ]
-};
-
+import { makePostRequest } from './ajax.js';
+import { Component } from 'react';
 /**
  * The Dashboard component.
  * This component takes care of creating the dashboard from it's sub-components.
  */
-function Dashboard() {
-    return (
-        <div className="Dashboard">
-          <DashboardMenu />
-          <div className="ChartContainer">
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
-            <Chart chartData={chartData1} type={Line} titleText='RAM Usage' />
-            <Chart chartData={chartData2} type={Line} />
-            <Chart chartData={chartData3} type={Bar} titleText='Network throughput'/>
+class Dashboard extends Component {
+    constructor(args) {
+        super(args);
+        this.state = {
+          chartData: [],
+          timeSpan: "-30 minutes",
+        };
+
+        this.forceUpdate2 = this.forceUpdate2.bind(this);
+    }
+
+    async componentDidMount() { 
+        await this.updateDashboard();
+        setInterval(() => this.updateDashboard(), 3000000);
+    }
+
+    forceUpdate2(time) {
+        this.setState({timeSpan: time});
+        this.updateDashboard();
+    }
+
+    async updateDashboard() {
+         await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
+        .then(response => response.json())
+            .then(data => {
+                data.forEach(async (element, index) => {
+                    if(Number(element['collection_status'])) {
+                        let response = await makePostRequest('meow', element['display_name'], element['name'], 'AWS/EC2', 300, 'Average', this.state.timeSpan, 'now');
+                        
+                        let time = response.MetricDataResults[0]['Timestamps'];
+                        let timeFinal = [];
+
+                        for (var i = 0; i < time.length; i++)
+                        {
+                            var timeAsString = time[i];
+                            var tPos = timeAsString.indexOf("T");
+                            timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
+                        }
+
+                        let newData = {
+                            title: element['display_name'],
+                            labels: timeFinal.reverse(),
+                            datasets: [
+                                {
+                                    label: 'Core 1',
+                                    data: response.MetricDataResults[0]['Values'].reverse(),
+                                    backgroundColor: [
+                                        '#54ffdd',
+                                    ]
+                                }
+                            ]
+                        };
+                        let clone = this.state.chartData.slice();
+                        clone[index] = newData;
+
+                        this.setState({chartData: clone});
+                    }
+                })
+            })
+    }
+
+    render() {
+        return (
+            <div className="Dashboard">
+              <DashboardMenu method={this.forceUpdate2} timespan={this.state.timeSpan} />
+              <div className="ChartContainer">
+                  {this.state.chartData.map(value => <Chart chartData={value} titleText={value.title} />)}
+              </div>
             </div>
-        </div>
-    );
+        );
+    }
+
 }
 
 export default Dashboard;

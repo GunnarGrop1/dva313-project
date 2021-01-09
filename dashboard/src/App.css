@@ -133,13 +133,13 @@ a {
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: left;
 }
 
 .ChartContainer .ChartItem {
     background-color: #222222;
     width: 500px;
-    max-width: 1000px;
+    max-width: 30%;
     margin: 10px;
     padding: 10px;
 
