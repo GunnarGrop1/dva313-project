@@ -4,7 +4,6 @@
 import React, {Component} from 'react';
 import {Line, Pie, Bar} from 'react-chartjs-2';
 import {AiOutlineMenu, AiOutlineClose, AiOutlineBorder, AiOutlineCheckSquare} from 'react-icons/ai';
-import { makePostRequest } from '../ajax.js';
 
 /**
  * Class to create charts of diffrent types.
@@ -28,12 +27,13 @@ class Chart extends Component {
             chartData: args.chartData,
             hidden: false
         };
+        
+        //ugly but works, they are used to check so that if we click on certain items inside the menu it shouldn't close. In case of missclicks and such.
+        this.dropDownRef = React.createRef();
+        this.pRef = React.createRef();
+        this.ulRef = React.createRef();
     }
 
-    /**
-     * Deafult properties. These can be overridden.
-     * @type {{titleDisplay: boolean, titleText: string, titleSize: number, titleColor: string, legendDisplay: boolean, legendPosition: string}}
-     */
     static defaultProps = {
         titleDisplay: true,
         titleText: 'CPU Utilization',
@@ -41,6 +41,7 @@ class Chart extends Component {
         titleColor: '#FFF',
         legendDisplay: true,
         legendPosition: 'bottom',
+        type: Line,
     };
 
     /**
@@ -62,7 +63,19 @@ class Chart extends Component {
 
     componentWillReceiveProps(props) {
         this.setState({ chartData: props.chartData })
-      }
+    }
+
+    toggleFunc = this.toggleVisibility.bind(this);
+
+    toggleVisibility(event) {
+        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
+          this.setState(state => ({showMenu: !state.showMenu}))
+        }
+
+        if(!this.state.showMenu) {
+          document.removeEventListener("click", this.toggleFunc);
+        }
+    }
     /**
      * Renders chart to the screen.
      */
@@ -70,14 +83,12 @@ class Chart extends Component {
         return(
             !this.state.hidden ? (
             <div className="ChartItem">
-              <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
-                {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
-              </button>
+              <button onClick={() => {document.addEventListener("click", this.toggleFunc);}}> {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }</button>
               {
                   this.state.showMenu ? (
-                      <div className="Dropdown">
-                        <ul>
-                          <p>Type</p>
+                    <div ref={this.dropDownRef} className="Dropdown">
+                    <ul ref={this.ulRef}>
+                    <p ref={this.pRef}>Type</p>
                           <li onClick={(e) => this.changeType(Line)}>
                             {this.state.type == Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
                           </li>
@@ -91,7 +102,7 @@ class Chart extends Component {
                           <li onClick={(e) => this.toggleHidden()}>
                             {this.state.hidden ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Hide
                           </li>
-                          <li onClick={(e) => this.updateGraph()}>
+                          <li onClick={(e) => this.testUpdateGraph()}>
                             Update
                           </li>
                         </ul>
@@ -100,7 +111,7 @@ class Chart extends Component {
                       null
                   )
               }
-              <this.state.type
+              <this.props.type
                 data = {this.state.chartData}
                 options = {{
                     title: {

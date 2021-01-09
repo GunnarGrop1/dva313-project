@@ -13,23 +13,21 @@ class DashboardMenu extends Component {
      */
     constructor(args) {
         super(args);
-        this.state = {
-        };
     }
 
     // TODO: fix proper values
     list = [
         {
-            link: "/whatever/",
-            text: "Menu item 1"
+            link: "-33 minutes",
+            text: "Last 30 minutes"
         },
         {
-            link: "/whatever/",
-            text: "Menu item 1"
+            link: "-63 minutes",
+            text: "Last hour"
         },
         {
-            link: "/whatever/",
-            text: "Menu item 1"
+            link: "-243 minutes",
+            text: "Last 4 hours"
         }
     ];
 
@@ -39,7 +37,7 @@ class DashboardMenu extends Component {
     render() {
         return(
             <div className="DashboardMenu">
-              <Dropdown text="Time span" menuItems={this.list}/>
+              <Dropdown method={this.props.method} text="Time span" menuItems={this.list}/>
             </div>
         );
     }

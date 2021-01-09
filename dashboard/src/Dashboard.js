@@ -3,84 +3,6 @@ import {Line, Bar, Pie} from 'react-chartjs-2';
 import DashboardMenu from './components/dashboardMenu';
 import { makePostRequest } from './ajax.js';
 import { Component } from 'react';
-var chartData1;
-makePostRequest().then(result =>{
-  //console.log(`${JSON.stringify(result)}`);
-  //var obj = result;
-  //console.log(result.MetricDataResults.Id);
-  //console.log(result.data.MetricDataResults['0'].Id);
-  //var temp = JSON.parse(result);
-  var temp = result.data;
-
-  console.log(temp["MetricDataResults"][0]["Timestamps"]);
-
-  chartData1 = {
-      labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-      datasets: [
-          {
-              label: 'MB',
-              data: temp["MetricDataResults"][0]["Values"],//[
-                  //0,
-                  //12,
-                  //20,
-                  //47,
-                  //5,
-                  //18,
-                  //36
-
-              //],
-              backgroundColor: [
-                  '#54ffdd'
-              ]
-          }
-      ]
-  };
-  console.log(temp["MetricDataResults"][0]["Values"]);
-  console.log(chartData1.datasets[0].data);
-/*
-  temp["MetricDataResults"][0]["Values"].forEach((i) => {
-    let k = 0;
-    myNewChart.data.datasets[0].data[k] = i;
-    k++;
-    myNewChart.update();
-  });*/
-});
-const chartData2 = {
-    labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
-    datasets: [
-        {
-            label: 'Core 1',
-            data: [
-                99,
-                87,
-                86,
-                67,
-                55,
-                23,
-                28
-            ],
-            backgroundColor: [
-                '#54ffdd',
-            ]
-        },
-        {
-            label: 'Core 2',
-            data: [
-                0,
-                12,
-                20,
-                47,
-                5,
-                18,
-                36
-            ],
-            backgroundColor: [
-                '#ebb'
-            ]
-        }
-    ]
-};
-
 /**
  * The Dashboard component.
  * This component takes care of creating the dashboard from it's sub-components.
@@ -89,65 +11,69 @@ class Dashboard extends Component {
     constructor(args) {
         super(args);
         this.state = {
-          chartData : []
-            //state
+          chartData: [],
+          timeSpan: "-30 minutes",
         };
+
+        this.forceUpdate2 = this.forceUpdate2.bind(this);
     }
 
-    componentDidMount(){
-      setInterval(
-        () => this.updateWhatEver(), 5000
-      );
+    async componentDidMount() { 
+        await this.updateDashboard();
+        setInterval(() => this.updateDashboard(), 3000000);
     }
 
-    updateWhatEver()
-    {
-      var temp;
-        makePostRequest("id", "average metrics", "CPUUtilization", "AWS/EC2", "300", "Average", "-20 minutes", "now").then(result =>{
-            temp = result.data;
-            var time = temp["MetricDataResults"][0]["Timestamps"];
-            let timeFinal = [];
+    forceUpdate2(time) {
+        this.setState({timeSpan: time});
+        this.updateDashboard();
+    }
 
-            for (var i = 0; i < time.length; i++)
-            {
-                var timeAsString = time[i];
-                var tPos = timeAsString.indexOf("T");
-                timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
-            }
-            console.log("this is before setstate", temp);
+    async updateDashboard() {
+         await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
+        .then(response => response.json())
+            .then(data => {
+                data.forEach(async (element, index) => {
+                    if(Number(element['collection_status'])) {
+                        let response = await makePostRequest('meow', element['display_name'], element['name'], 'AWS/EC2', 300, 'Average', this.state.timeSpan, 'now');
+                        
+                        let time = response.MetricDataResults[0]['Timestamps'];
+                        let timeFinal = [];
 
-            this.setState({
-                chartData:  {
-                    labels: timeFinal,
-                    datasets: [
+                        for (var i = 0; i < time.length; i++)
                         {
-                            label: '%',
-                            data: temp["MetricDataResults"][0]["Values"],
-                            backgroundColor: [
-                                '#54ffdd',
-                                '#6cffa9',
-                                '#fdff78',
-                                '#ff8742',
-                                '#ff7ef2',
-                                '#ffc0c6',
-                                '#c7d6ff'
-                            ]
+                            var timeAsString = time[i];
+                            var tPos = timeAsString.indexOf("T");
+                            timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
                         }
-                    ]
-                }
-            });
-        });
-        console.log("Interval testing");
-        console.log(temp);
+
+                        let newData = {
+                            title: element['display_name'],
+                            labels: timeFinal.reverse(),
+                            datasets: [
+                                {
+                                    label: 'Core 1',
+                                    data: response.MetricDataResults[0]['Values'].reverse(),
+                                    backgroundColor: [
+                                        '#54ffdd',
+                                    ]
+                                }
+                            ]
+                        };
+                        let clone = this.state.chartData.slice();
+                        clone[index] = newData;
+
+                        this.setState({chartData: clone});
+                    }
+                })
+            })
     }
 
     render() {
         return (
             <div className="Dashboard">
-              <DashboardMenu />
+              <DashboardMenu method={this.forceUpdate2} timespan={this.state.timeSpan} />
               <div className="ChartContainer">
-                <Chart chartData={this.state.chartData} type={Line} titleText='RAM Usage' />
-
+                  {this.state.chartData.map(value => <Chart chartData={value} titleText={value.title} />)}
               </div>
             </div>
         );
