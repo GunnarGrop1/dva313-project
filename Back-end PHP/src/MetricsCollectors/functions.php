@@ -20,6 +20,9 @@ function getMetricData($id, $label, $metricname, $namespace, $period, $stat, $st
           [
               'Id' => $id, // REQUIRED // 'mCpu'
               'Label' => $label, // 'Average CPU Metrics'
+              'DataPoints' => [
+                'Unit' => 'Percent'
+              ],
               'MetricStat' => [
                   'Metric' => [ // REQUIRED
                       'Dimensions' => [

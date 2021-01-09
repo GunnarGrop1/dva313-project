@@ -40,8 +40,8 @@ class GlobalMenuBar extends Component {
                 <ul className="links">
                   {
                       this.state.links.map((obj, i) => {
-                          return ( <Link to={obj.path}>
-                                     <li key={i}>
+                          return ( <Link to={obj.path} key={i}>
+                                     <li>
                                        <obj.icon size={this.props.iconSize} />
                                      </li>
                                    </Link> );

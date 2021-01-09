@@ -51,11 +51,9 @@ class Dashboard extends Component {
                             labels: timeFinal.reverse(),
                             datasets: [
                                 {
-                                    label: 'Core 1',
+                                    label: element['display_name'],
                                     data: response.MetricDataResults[0]['Values'].reverse(),
-                                    backgroundColor: [
-                                        '#54ffdd',
-                                    ]
+                                    backgroundColor: '#54ffdd'
                                 }
                             ]
                         };
@@ -73,7 +71,7 @@ class Dashboard extends Component {
             <div className="Dashboard">
               <DashboardMenu method={this.forceUpdate2} timespan={this.state.timeSpan} />
               <div className="ChartContainer">
-                  {this.state.chartData.map(value => <Chart chartData={value} titleText={value.title} />)}
+                  {this.state.chartData.map((value, index) => <Chart key={index} chartData={value} titleText={value.title} />)}
               </div>
             </div>
         );

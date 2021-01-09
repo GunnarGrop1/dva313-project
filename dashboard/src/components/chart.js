@@ -11,7 +11,7 @@ import {AiOutlineMenu, AiOutlineClose, AiOutlineBorder, AiOutlineCheckSquare} fr
 class Chart extends Component {
     /**
      * @param {Object} args - Properties passed from caller.
-     * @param {Object} args.type - The type of chart to create (Line, Pie, Bar, etc). Chart types are those exposed from react-chartjs-2.
+     * @param {Object} type - The type of chart to create (Line, Pie, Bar, etc). Chart types are those exposed from react-chartjs-2.
      * @param {Object} args.chartData - Data used to construct the chart.
      * @param {string[]} args.chartData.labels - Labels for the x-axis.
      * @param {Object[]} args.chartData.datasets - The diffrent datasets to display on the chart (can contain several datasets).
@@ -23,9 +23,9 @@ class Chart extends Component {
         super(args);
         this.state = {
             showMenu: false,
-            type: args.type,
+            type: Line,
             chartData: args.chartData,
-            hidden: false
+            hidden: false,
         };
         
         //ugly but works, they are used to check so that if we click on certain items inside the menu it shouldn't close. In case of missclicks and such.
@@ -40,8 +40,7 @@ class Chart extends Component {
         titleSize: 18,
         titleColor: '#FFF',
         legendDisplay: true,
-        legendPosition: 'bottom',
-        type: Line,
+        legendPosition: 'bottom'
     };
 
     /**
@@ -50,11 +49,6 @@ class Chart extends Component {
      */
     changeType(type) {
         this.setState({type: type});
-    }
-
-    testUpdateGraph()
-    {
-        console.log("Updating every th second");
     }
 
     toggleHidden() {
@@ -68,7 +62,7 @@ class Chart extends Component {
     toggleFunc = this.toggleVisibility.bind(this);
 
     toggleVisibility(event) {
-        if(event.target != this.dropDownRef.current && event.target != this.pRef.current && event.target != this.ulRef.current) {
+        if(event.target !== this.dropDownRef.current && event.target !== this.pRef.current && event.target !== this.ulRef.current) {
           this.setState(state => ({showMenu: !state.showMenu}))
         }
 
@@ -89,21 +83,18 @@ class Chart extends Component {
                     <div ref={this.dropDownRef} className="Dropdown">
                     <ul ref={this.ulRef}>
                     <p ref={this.pRef}>Type</p>
-                          <li onClick={(e) => this.changeType(Line)}>
-                            {this.state.type == Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
+                          <li onClick={() => this.changeType(Line)}>
+                            {this.state.type === Line ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Line
                           </li>
-                          <li onClick={(e) => this.changeType(Pie)}>
-                            {this.state.type == Pie ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Pie
+                          <li onClick={() => this.changeType(Pie)}>
+                            {this.state.type === Pie ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Pie
                           </li>
-                          <li onClick={(e) => this.changeType(Bar)}>
-                            {this.state.type == Bar ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Bar
+                          <li onClick={() => this.changeType(Bar)}>
+                            {this.state.type === Bar ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Bar
                           </li>
                           <p>Options</p>
-                          <li onClick={(e) => this.toggleHidden()}>
+                          <li onClick={() => this.toggleHidden()}>
                             {this.state.hidden ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Hide
-                          </li>
-                          <li onClick={(e) => this.testUpdateGraph()}>
-                            Update
                           </li>
                         </ul>
                       </div>
@@ -111,7 +102,7 @@ class Chart extends Component {
                       null
                   )
               }
-              <this.props.type
+              <this.state.type
                 data = {this.state.chartData}
                 options = {{
                     title: {

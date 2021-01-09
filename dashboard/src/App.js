@@ -26,7 +26,7 @@ function App() {
             <Switch>
               {
                   links.map((obj, i) => {
-                      return (<Route path={obj.path} exact component={obj.component}/>);
+                      return (<Route key={i} path={obj.path} exact component={obj.component}/>);
                   })
               }
             </Switch>
