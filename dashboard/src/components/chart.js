@@ -54,7 +54,7 @@ class Chart extends Component {
     updateGraph() {
 
         makePostRequest().then(result =>{
-            var temp = JSON.parse(result.data);
+            var temp = result.data;
             var time = temp["MetricDataResults"][0]["Timestamps"];
             let timeFinal = [];
 

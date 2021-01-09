@@ -10,7 +10,7 @@ makePostRequest().then(result =>{
   //console.log(result.MetricDataResults.Id);
   //console.log(result.data.MetricDataResults['0'].Id);
   //var temp = JSON.parse(result);
-  var temp = JSON.parse(result.data);
+  var temp = result.data;
 
   console.log(temp["MetricDataResults"][0]["Timestamps"]);
 
@@ -45,7 +45,6 @@ makePostRequest().then(result =>{
     myNewChart.update();
   });*/
 });
-
 const chartData2 = {
     labels: ['13:00', '13:05', '13:10', '13:15', '13:20', '13:25', '13:30'],
     datasets: [

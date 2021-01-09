@@ -1,4 +1,4 @@
-<<?php
+<?php
 require '..\..\AWSSDK\aws-autoloader.php';
 require_once '..\credentials.php';
 use AWSSDK\Aws\CloudWatch\CloudWatchClient;
