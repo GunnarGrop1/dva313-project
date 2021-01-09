@@ -25,7 +25,8 @@ class Chart extends Component {
         this.state = {
             showMenu: false,
             type: args.type,
-            chartData: args.chartData
+            chartData: args.chartData,
+            hidden: false
         };
     }
 
@@ -52,54 +53,57 @@ class Chart extends Component {
 
     updateGraph() {
 
-      makePostRequest().then(result =>{
-        var temp = JSON.parse(result.data);
-        var time = temp["MetricDataResults"][0]["Timestamps"];
-        let timeFinal = [];
+        makePostRequest().then(result =>{
+            var temp = JSON.parse(result.data);
+            var time = temp["MetricDataResults"][0]["Timestamps"];
+            let timeFinal = [];
 
-        for (var i = 0; i < time.length; i++)
-        {
-          var timeAsString = time[i];
-          var tPos = timeAsString.indexOf("T");
-          timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
-        }
-
-        this.setState({
-            chartData:  {
-                labels: timeFinal,
-                datasets: [
-                    {
-                        label: 'Mb/s',
-                        data: temp["MetricDataResults"][0]["Values"],
-                        backgroundColor: [
-                            '#54ffdd',
-                            '#6cffa9',
-                            '#fdff78',
-                            '#ff8742',
-                            '#ff7ef2',
-                            '#ffc0c6',
-                            '#c7d6ff'
-                        ]
-                    }
-                ]
+            for (var i = 0; i < time.length; i++)
+            {
+                var timeAsString = time[i];
+                var tPos = timeAsString.indexOf("T");
+                timeFinal[i] = timeAsString.substring(tPos+1, tPos+6);
             }
+
+            this.setState({
+                chartData:  {
+                    labels: timeFinal,
+                    datasets: [
+                        {
+                            label: 'Mb/s',
+                            data: temp["MetricDataResults"][0]["Values"],
+                            backgroundColor: [
+                                '#54ffdd',
+                                '#6cffa9',
+                                '#fdff78',
+                                '#ff8742',
+                                '#ff7ef2',
+                                '#ffc0c6',
+                                '#c7d6ff'
+                            ]
+                        }
+                    ]
+                }
+            });
+            console.log("Chartupdate:", temp["MetricDataResults"][0])
         });
-        console.log("Chartupdate:", temp["MetricDataResults"][0])
-      });
-}
+    }
 
-  testUpdateGraph()
-  {
-    console.log("Updating every th second");
-  }
+    testUpdateGraph()
+    {
+        console.log("Updating every th second");
+    }
 
-
+    toggleHidden() {
+        this.setState(state => ({hidden: !state.hidden}));
+    }
 
     /**
      * Renders chart to the screen.
      */
     render() {
         return(
+            !this.state.hidden ? (
             <div className="ChartItem">
               <button onClick={(e) => this.setState({showMenu: !this.state.showMenu})}>
                 {this.state.showMenu ? <AiOutlineClose/> : <AiOutlineMenu/> }
@@ -118,10 +122,13 @@ class Chart extends Component {
                           <li onClick={(e) => this.changeType(Bar)}>
                             {this.state.type == Bar ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Bar
                           </li>
-                          <p>Temp</p>
+                          <p>Options</p>
+                          <li onClick={(e) => this.toggleHidden()}>
+                            {this.state.hidden ? <AiOutlineCheckSquare/> : <AiOutlineBorder/>} Hide
+                          </li>
                           <li onClick={(e) => this.updateGraph()}>
                             Update
-                            </li>
+                          </li>
                         </ul>
                       </div>
                   ) : (
@@ -144,6 +151,9 @@ class Chart extends Component {
                 }}
               />
             </div>
+            ) : (
+                null
+            )
         );
     }
 }
