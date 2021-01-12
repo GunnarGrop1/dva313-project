@@ -1,6 +1,6 @@
 export async function makePostRequest(__id, __average, __type, __aws, __period, __stat, __startTime, __endtime)
 {
-  const response = await fetch('http://localhost/Back-end%20PHP/src/MetricsCollectors/getMetricData.php', {
+  const response = await fetch('http://localhost/dva313/backend/src/MetricsCollectors/getMetricData.php', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -21,4 +21,3 @@ export async function makePostRequest(__id, __average, __type, __aws, __period, 
 
   return data;
 }
-
