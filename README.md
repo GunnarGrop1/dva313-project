@@ -24,7 +24,7 @@ One the install has finished, you can start to application with the 'run' file t
 ./run
 ```
 #### Troubleshooting
-If you can't run the install script (Ubuntu 20.04 only), make sure it's executable.
+If you can't run the install script, make sure it's executable.
 ```
 chmod +x install
 ```
