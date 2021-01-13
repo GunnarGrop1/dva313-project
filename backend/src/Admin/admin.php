@@ -1,5 +1,5 @@
 <?php
-require_once '../dbconn/dbConn.php';
+require_once '../DbConn/dbConn.php';
 require '../../AWSSDK/aws-autoloader.php';
 require_once '../credentials.php';
 use AWSSDK\Aws\CloudWatch\CloudWatchClient;
