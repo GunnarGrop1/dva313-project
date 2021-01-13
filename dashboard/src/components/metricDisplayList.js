@@ -47,7 +47,7 @@ class MetricDisplayList extends React.Component {
         this.state = {apiData: []}
     }
     async componentDidMount() {
-        await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
+        await fetch('http://localhost/dva313/backend/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
         .then(response => response.json())
             .then(data => this.setState({apiData: data}));
     }
