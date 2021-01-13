@@ -27,17 +27,17 @@ read secret
 echo "Please enter InstanceId of the AWS EC2 instance you want to monitor: "
 read instanceid
 
-echo "<?php 
+echo "<?php
 \$credentials_Key = '$key';
 \$credentials_Secret = '$secret';
 \$instance_id = '$instanceid';
 ?>" > backend/src/credentials.php
 
 ## Generate run script
-echo "#!/bin/sh 
-sudo systemctl start apache2.service 
-sudo systemctl start mariadb.service 
-cd dashboard/ 
+echo "#!/bin/sh
+sudo systemctl start apache2.service
+sudo systemctl start mariadb.service
+cd dashboard/
 npm start" > run
 chmod +x run
 
