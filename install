@@ -1,17 +1,21 @@
 #!/bin/sh
 
-## Install dependencies
-sudo apt install apache2 php php-mysqli php-mbstring php-xml mariadb-server npm
+## Install node dependencies
 cd dashboard/
 npm install
 cd ../
 
 ## Setup database
-
+sudo mysql -e "CREATE USER 'dva313'@'%' IDENTIFIED BY '';" &&\
+sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'dva313'@'%';" &&\
+sudo mysql -e "FLUSH PRIVILEGES;" &&\
+sudo mysql -u dva313 -e "CREATE DATABASE cloudnative;" &&\
+sudo mysql -u dva313 cloudnative < cloudnative.sql
 
 ## Setup web-server
 sudo echo "extension=mysqli" >> /etc/php/7.4/apache2/php.ini
 sudo a2enmod php7.4
+sudo cp -r backend/ /var/www/html/dva313
 sudo systemctl start apache2.service || sudo systemctl restart apache2.service
 
 ## Setup AWS credentials
