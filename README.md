@@ -39,3 +39,6 @@ If you can't install the dependencies, make sure your system are up to date.
 ```
 sudo apt update && sudo apt upgrade -y
 ```
+
+## Running
+Default login credentials on the dashboard is "admin" "test123".
