@@ -7,7 +7,7 @@ async function postData(url = '', data = {}) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded'
-      },  
+      },
       body: new URLSearchParams({
           metric: data.metric,
           status: data.status
@@ -28,9 +28,9 @@ class MetricDisplay extends React.Component {
     //code for toggling metric collection on and off.
     toggle() {
         this.setState({status: !this.state.status});
-        postData('http://localhost/Back-end%20PHP/src/GetSetAPI/setMetricCollectionStatus.php', {metric: this.props.name, status: Number(!this.state.status)});
+        postData('http://localhost/dva313/backend/src/GetSetAPI/setMetricCollectionStatus.php', {metric: this.props.name, status: Number(!this.state.status)});
     }
-    
+
     render() {
         return (<li className={this.state.status ? "metric-enabled" : "metric-disabled"} onClick={this.toggle}>
                 {this.state.status ? <AiOutlineCheck/> : <AiOutlineClose/>}
@@ -51,11 +51,11 @@ class MetricDisplayList extends React.Component {
         .then(response => response.json())
             .then(data => this.setState({apiData: data}));
     }
-    
+
     render() {
         return (<div id="listContainer">
-                    <ul> 
-                        {this.state.apiData.map(value => <MetricDisplay key={value.name} name={value.name} display_name={value.display_name} status={Number(value.collection_status)} />)} 
+                    <ul>
+                        {this.state.apiData.map(value => <MetricDisplay key={value.name} name={value.name} display_name={value.display_name} status={Number(value.collection_status)} />)}
                     </ul>
             </div>);
     }
