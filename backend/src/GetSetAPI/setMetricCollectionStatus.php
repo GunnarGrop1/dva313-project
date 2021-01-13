@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: http://localhost:3000"); #this is required 
 header('Access-Control-Allow-Credentials: true'); #same goes for this header. (required in order for it to accept the cookies that are being sent)
 
 require_once '../Login/validateLogin.php';
-require_once '../dbconn/dbConn.php';
+require_once '../DbConn/dbConn.php';
 
 if(!isset($_POST['metric']) || !isset($_POST['status'])) {
     http_response_code(400);

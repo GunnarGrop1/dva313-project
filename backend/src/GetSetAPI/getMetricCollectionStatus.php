@@ -3,7 +3,7 @@ header("Access-Control-Allow-Origin: http://localhost:3000"); #this is required 
 header('Access-Control-Allow-Credentials: true'); #same goes for this header. (required in order for it to accept the cookies that are being sent)
 
 //require_once '..\\Login\\validateLogin.php';
-require_once '../dbconn/dbConn.php';
+require_once '../DbConn/dbConn.php';
 
 $result = mysqli_query($conn, "SELECT * FROM metric ORDER BY collection_status DESC");
 
