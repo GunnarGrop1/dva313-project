@@ -14,9 +14,7 @@ sudo mysql -u dva313 cloudnative < cloudnative.sql
 
 ## Setup web-server
 sudo echo "extension=mysqli" >> /etc/php/7.4/apache2/php.ini
-sudo cp -r backend/ /var/www/html/dva313
 sudo a2enmod php7.4
-sudo cp -r backend/ /var/www/html/dva313
 sudo systemctl start apache2.service || sudo systemctl restart apache2.service
 
 ## Setup AWS credentials
@@ -33,6 +31,8 @@ echo "<?php
 \$instance_id = '$instanceid';
 ?>" > backend/src/credentials.php
 
+sudo cp -r backend/ /var/www/html/dva313
+
 ## Generate run script
 echo "#!/bin/sh
 sudo systemctl start apache2.service
@@ -42,7 +42,6 @@ npm start" > run
 chmod +x run
 
 ## Finished
-
 echo ""
 echo "Succesfully installed!"
 echo "Execute './run' to start the application."
