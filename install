@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## Install dependencies
-sudo apt install apache2 php php-mysqli php-mbstring php-xml mariadb npm
+sudo apt install apache2 php php-mysqli php-mbstring php-xml mariadb-server npm
 cd dashboard/
 npm install
 cd ../
@@ -36,7 +36,8 @@ echo "#!/bin/sh
      sudo systemctl start apache2.service 
      sudo systemctl start mariadb.service 
      cd dashboard/ 
-     npm run" > run
+     npm start" > run
+chmod +x run
 
 ## Finished
 
