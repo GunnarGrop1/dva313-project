@@ -28,7 +28,7 @@ function getMetricData($id, $label, $metricname, $namespace, $period, $stat, $st
                       'Dimensions' => [
                           [
                               'Name' => 'InstanceId', // REQUIRED
-                              'Value' => 'i-048e6d3b767f235f7', // REQUIRED //i-02f04280dd243c3ae <- the previous value
+                              'Value' => $GLOBALS['instance_id'], // REQUIRED //i-02f04280dd243c3ae <- the previous value
                           ],
                       ],
                       'MetricName' => $metricname, // CPUUtilization

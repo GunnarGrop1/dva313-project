@@ -1,0 +1,44 @@
+#!/bin/sh
+
+## Install dependencies
+sudo apt install apache2 php php-mysqli php-mbstring php-xml mariadb npm
+cd dashboard/
+npm install
+cd ../
+
+## Setup database
+
+
+## Setup web-server
+sudo echo "extension=mysqli" >> /etc/php/7.4/apache2/php.ini
+sudo a2enmod php7.4
+sudo systemctl start apache2.service || sudo systemctl restart apache2.service
+
+## Setup AWS credentials
+echo "Please enter your AWS key: "
+read key
+echo "Please enter your AWS secret key: "
+read secret
+echo "Please enter InstanceId of the AWS EC2 instance you want to monitor: "
+read instanceid
+rm backend/src/credentials.php
+touch backend/src/credentials.php
+echo "<?php 
+     $credentials_Key = '$key';
+     $credentials_Secret = '$secret';
+     $instance_id = '$instanceid';
+     ?>" > backend/src/credentials.php
+
+## Generate run script
+rm run
+touch run
+echo "#!/bin/sh 
+     sudo systemctl start apache2.service 
+     sudo systemctl start mariadb.service 
+     cd dashboard/ 
+     npm run" > run
+
+## Finished
+
+echo "Succesfully installed"
+echo "Execute './run' to start the application"
