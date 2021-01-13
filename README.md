@@ -3,7 +3,7 @@
 ## Amazon Web Services
 For this program to do anything useful you will need an [AWS](https://aws.amazon.com/) account with an [EC2](https://console.aws.amazon.com/ec2/v2) instance running.
 Once you have an EC2 instance running, go do the the [IAM](https://console.aws.amazon.com/iam) panel, and create a an IAM account.
-REMEMBER to keep the secret key, as you will need it later. Go to the priviliges section and grant your new user full CloudWatch right.
+REMEMBER to keep the secret key, as you will need it later. Go to the priviliges section and grant your new user full CloudWatch rights.
 
 ## Installation
 
