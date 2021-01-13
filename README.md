@@ -6,7 +6,7 @@ PLEASE only install this on a new virtual machine, and not on your personal syst
 
 Download the dependencies.
 ```
-apt install apache2 php php-mysqli php-xml php-mbstring mariadb-server npm
+sudo apt install apache2 php php-mysqli php-xml php-mbstring mariadb-server npm
 ```
 Clone the archive.
 ```
@@ -27,4 +27,9 @@ One the install has finished, you can start to application with the 'run' file t
 If you can't run the install script (Ubuntu 20.04 only), make sure it's executable.
 ```
 chmod +x install
+```
+
+If you can't install the dependencies, make sure your system are up to date.
+```
+sudo apt update && sudo apt upgrade -y
 ```
