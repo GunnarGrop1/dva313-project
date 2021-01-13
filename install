@@ -31,7 +31,7 @@ echo "<?php
 \$instance_id = '$instanceid';
 ?>" > backend/src/credentials.php
 
-sudo cp -r backend /var/www/html/dva313
+sudo cp -r backend/ /var/www/html/dva313/backend
 
 ## Generate run script
 echo "#!/bin/sh
