@@ -44,12 +44,15 @@ One the install has finished, you can start to application with the 'run' file t
 ```
 
 #### Troubleshooting
-If you can't run the install script, make sure it's executable.
+
+##### Can't run the install script
+Make sure that the script is executable.
 ```
 chmod +x install
 ```
 
-If you can't install the dependencies, make sure your system are up to date.
+##### Can't install dependencies
+Make sure your system is up to date.
 ```
 sudo apt update && sudo apt upgrade -y
 ```
