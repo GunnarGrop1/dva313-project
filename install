@@ -40,7 +40,7 @@ if [ ! -d /var/www/html/dva313 ]; then
     echo "Created directory /var/www/html/dva313"
 fi
 
-sudo cp -r backend/ /var/www/html/dva313/backend
+sudo yes | cp -rf backend/ /var/www/html/dva313/backend
 
 ## Generate run script
 echo "#!/bin/sh
