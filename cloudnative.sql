@@ -36,7 +36,7 @@ CREATE TABLE `metric` (
 
 LOCK TABLES `metric` WRITE;
 /*!40000 ALTER TABLE `metric` DISABLE KEYS */;
-INSERT INTO `metric` VALUES ('CPUUtilization','CPU Utilization',''),('DiskReadOps','Disk Read Ops',''),('DiskWriteOps','Disk Write Ops',''),('NetworkIn','Network In',''),('NetworkOut','Network Out',''),('NetworkPacketsIn','Network Packets In',''),('NetworkPacketsOut','Network Packets Out','');
+INSERT INTO `metric` VALUES ('CPUCreditBalance','CPU Credit Balance',''),('CPUCreditUsage','CPU Credit Usage',''),('CPUSurplusCreditBalance','CPU Surplus Credit Balance',''),('CPUSurplusCreditsCharged','CPU Surplus Credits Charged',''),('CPUUtilization','CPU Utilization',''),('DiskReadBytes','Disk Read Bytes',''),('DiskReadOps','Disk Read Ops',''),('DiskWriteBytes','Disk Write Bytes',''),('DiskWriteOps','Disk Write Ops',''),('MetadataNoToken','Metadata No Token',''),('NetworkIn','Network In',''),('NetworkOut','Network Out',''),('NetworkPacketsIn','Network Packets In',''),('NetworkPacketsOut','Network Packets Out',''),('StatusCheckFailed','Status Check Failed',''),('StatusCheckFailed_Instance','Status Check Failed (Instance)',''),('StatusCheckFailed_System','Status Check Failed (System)','');
 /*!40000 ALTER TABLE `metric` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,7 +60,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('admin','$2y$10$B5CvGN.JXgB03EZXjQllHeszMYkF85ec6sJXSrolSnXDN/B97NO46'),('admin2','admin');
+INSERT INTO `user` VALUES ('admin','$2y$10$B5CvGN.JXgB03EZXjQllHeszMYkF85ec6sJXSrolSnXDN/B97NO46');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -73,4 +73,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-13 15:46:57
+-- Dump completed on 2021-01-14 12:07:22
