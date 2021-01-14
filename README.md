@@ -1,4 +1,4 @@
-# DVA313 Project - a cloud native performance monitoring system
+# DVA313 Project - a cloud-native performance monitoring system
 This program is a monitoring system for virtual machines running on Amazon Webservices.
 The aim of the project is to offer an easy way of monitoring resource usage for you machines from an easy to use graphical dashboard.
 
