@@ -40,6 +40,10 @@ if [ ! -d /var/www/html/dva313 ]; then
     echo "Created directory /var/www/html/dva313"
 fi
 
+if [ -d /var/www/html/dva313/backend ]; then
+    sudo rm -rf /var/www/html/dva313/backend
+fi
+
 sudo yes | cp -rf backend/ /var/www/html/dva313/backend
 
 ## Generate run script
