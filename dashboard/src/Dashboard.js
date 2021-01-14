@@ -18,7 +18,7 @@ class Dashboard extends Component {
         this.forceUpdate2 = this.forceUpdate2.bind(this);
     }
 
-    async componentDidMount() { 
+    async componentDidMount() {
         await this.updateDashboard();
         setInterval(() => this.updateDashboard(), 3000000);
     }
@@ -29,13 +29,13 @@ class Dashboard extends Component {
     }
 
     async updateDashboard() {
-         await fetch('http://localhost/Back-end%20PHP/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
+         await fetch('http://localhost/dva313/backend/src/GetSetAPI/getMetricCollectionStatus.php', {credentials: 'include'})
         .then(response => response.json())
             .then(data => {
                 data.forEach(async (element, index) => {
                     if(Number(element['collection_status'])) {
                         let response = await makePostRequest('meow', element['display_name'], element['name'], 'AWS/EC2', 300, 'Average', this.state.timeSpan, 'now');
-                        
+
                         let time = response.MetricDataResults[0]['Timestamps'];
                         let timeFinal = [];
 

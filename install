@@ -1,0 +1,60 @@
+#!/bin/sh
+
+## Install node dependencies
+cd dashboard/
+npm install
+cd ../
+
+## Setup database
+sudo mysql -e "CREATE USER IF NOT EXISTS 'dva313'@'%' IDENTIFIED BY '';" &&\
+sudo mysql -e "GRANT ALL PRIVILEGES ON *.* TO 'dva313'@'%';" &&\
+sudo mysql -e "FLUSH PRIVILEGES;" &&\
+sudo mysql -u dva313 -e "CREATE DATABASE IF NOT EXISTS cloudnative;" &&\
+sudo mysql -u dva313 cloudnative < cloudnative.sql
+
+## Setup web-server
+sudo echo "extension=mysqli" >> /etc/php/7.4/apache2/php.ini
+sudo a2enmod php7.4
+sudo systemctl start apache2.service || sudo systemctl restart apache2.service
+
+## Setup AWS credentials
+echo ""
+echo "Please enter your AWS key: "
+read key
+echo "Please enter your AWS secret key: "
+read secret
+echo "Please enter InstanceId of the AWS EC2 instance you want to monitor: "
+read instanceid
+echo "Which availability zone is you EC2 instance running on?"
+read location
+
+echo "<?php
+\$credentials_Key = '$key';
+\$credentials_Secret = '$secret';
+\$instance_id = '$instanceid';
+\$location = '$location';
+?>" > backend/src/credentials.php
+
+if [ ! -d /var/www/html/dva313 ]; then
+    sudo mkdir /var/www/html/dva313
+    echo "Created directory /var/www/html/dva313"
+fi
+
+if [ -d /var/www/html/dva313/backend ]; then
+    sudo rm -rf /var/www/html/dva313/backend
+fi
+
+sudo cp -r backend/ /var/www/html/dva313/backend
+
+## Generate run script
+echo "#!/bin/sh
+sudo systemctl start apache2.service
+sudo systemctl start mariadb.service
+cd dashboard/
+npm start" > run
+chmod +x run
+
+## Finished
+echo ""
+echo "Succesfully installed!"
+echo "Execute './run' to start the application."
