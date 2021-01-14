@@ -75,7 +75,7 @@ $instance_id = '*your EC2 instance id"*';
 ?>
 ```
 
-Setup the web server:
+Setting up the web server:
 ```
 1. Start XAMPP.
 2. Press 'Explorer' on the right hand side of the XAMPP control panel.
@@ -86,7 +86,7 @@ Setup the web server:
 7. Done.
 ```
 
-Setup the database:
+Setting up the database:
 ```
 1. In the XAMPP control panel, click the "Start" action under the "MySQL" module.
 2. Click the "Admin" action under the "MySQL" module. This will take you to a website.
