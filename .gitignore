@@ -5,4 +5,4 @@ dashboard/.vscode
 dashboard/debug.el
 .log
 run
-backend/credentials.php
+backend/src/credentials.php
