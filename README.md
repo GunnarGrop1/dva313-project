@@ -129,7 +129,17 @@ Install the npm dependencies:
 Make sure that the "credentials.php" file you created earlier isn't actually called "credentials.php.txt". By default, Windows doesn't let you see file endings, and will append ".txt" to files it considers text files.
 Also make sure that the you change the "xampp/htdocs/dva313/backend/src/credentials.php" file, if this is the problem.
 
-## Default login credentials
+## Usage
+
+### Starting the application
+When you start the application, it should open a new tab in you default web browser and take you to the right page.
+If not: just navigate to "localhost:3000" in your web browser.
+
+On Ubuntu 20.04, you can just use the run script in "dva313-project/dashboard" everytime you want to start the application.
+
+On Windows 10 you need to run "npm start" in the "dva313-project/dashboard" folder to start it, and also make sure that the Apache2 web server and the MariaDB/MySQL database is running (in XAMPP).
+
+### Default login credentials
 | Username | Password |
 |:---------|:---------|
 | admin    |  test123 |
