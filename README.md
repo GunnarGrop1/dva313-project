@@ -11,9 +11,10 @@ The aim of the project is to offer an easy way of monitoring resource usage for 
 | /deliverables    |                                                  All deliverables regarding this course |
 
 ## Amazon Web Services
-For this program to do anything useful you will need an [AWS](https://aws.amazon.com/) account with an [EC2](https://console.aws.amazon.com/ec2/v2) instance running.
-Once you have an EC2 instance running, go do the the [IAM](https://console.aws.amazon.com/iam) panel, and create a an IAM account.
-Give the new IAM user programmatic access, and give it the "CloudWatchFullAccess" right. REMEMBER to keep the secret key, as you will need it later. Go to the priviliges section and grant your new user full CloudWatch rights.
+For this application to do anything useful you will need an [AWS](https://aws.amazon.com/) account with an [EC2](https://console.aws.amazon.com/ec2/v2) instance running.
+Go to the the [IAM](https://console.aws.amazon.com/iam) panel, and create a an IAM account.
+Give the new IAM user programmatic access, and give it the "CloudWatchFullAccess" right. Remember to keep the secret key, as you will need it later. Once you have an IAM account, go to the EC2 panel and create a virtual machine of any kind.
+**Note**: this application has only been tested with Ubuntu 20.04 EC2 instances.
 
 ## Installation
 
