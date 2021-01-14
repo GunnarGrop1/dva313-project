@@ -4,7 +4,7 @@ The aim of the project is to offer an easy way of monitoring resource usage for 
 
 ## Repository structure
 | Directory        |                                                                        What it contains |
-|:-----------------|----------------------------------------------------------------------------------------:|
+|:-----------------|:----------------------------------------------------------------------------------------|
 | /dashboard       |             All [npm](https://www.npmjs.com/) configurations and the graphical web-page |
 | /backend         | The PHP files responsible for communicatino between the database, AWS and the dashboard |
 | /cloudnative.sql |                                                             The MariaDB database schema |
