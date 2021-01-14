@@ -35,7 +35,11 @@ echo "<?php
 \$location = '$location';
 ?>" > backend/src/credentials.php
 
-sudo mkdir /var/www/html/dva313
+if [ ! -d /var/www/html/dva313 ]; then
+    sudo mkdir /var/www/html/dva313
+    echo "Created directory /var/www/html/dva313"
+fi
+
 sudo cp -r backend/ /var/www/html/dva313/backend
 
 ## Generate run script
