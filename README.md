@@ -66,7 +66,7 @@ Clone the repository:
 git clone https://github.com/GunnarGrop1/dva313-project.git
 ```
 
-Create a file called "credentials.php" in dva313-project/backend/src, make sure it looks like this:
+Create a file called "credentials.php" in "dva313-project/backend/src", make sure it looks like this:
 ```php
 <?php
 $credentials_Key = '*your IAM access key*';
