@@ -41,6 +41,6 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ## Default login credentials
-| User  | Password |
-|:------|---------:|
-| admin |  test123 |
+| Username | Password |
+|:---------|---------:|
+| admin    |  test123 |
