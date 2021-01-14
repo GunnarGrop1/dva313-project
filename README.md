@@ -1,4 +1,14 @@
-# dva313-project
+# DVA313 Project - a cloud native performance monitoring system
+This program is a monitoring system for virtual machines running on Amazon Webservices.
+The aim of the project is to offer an easy way of monitoring resource usage for you machines from an easy to use graphical dashboard.
+
+## Repository structure
+| Directory        |                                                                        What it contains |
+|:-----------------|----------------------------------------------------------------------------------------:|
+| /dashboard       |             All [npm](https://www.npmjs.com/) configurations and the graphical web-page |
+| /backend         | The PHP files responsible for communicatino between the database, AWS and the dashboard |
+| /cloudnative.sql |                                                             The MariaDB database schema |
+| /deliverables    |                                                  All deliverables regarding this course |
 
 ## Amazon Web Services
 For this program to do anything useful you will need an [AWS](https://aws.amazon.com/) account with an [EC2](https://console.aws.amazon.com/ec2/v2) instance running.
