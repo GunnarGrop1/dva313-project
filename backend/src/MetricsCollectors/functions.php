@@ -7,7 +7,7 @@ use AWSSDK\Aws\Exception\AwsException;
 function getMetricData($id, $label, $metricname, $namespace, $period, $stat, $starttime, $endtime) {
 
     $cloudWatchClient = new Aws\CloudWatch\CloudWatchClient([
-        'region' => 'us-east-2', //eu-north-1
+        'region' => $GLOBALS['location'], //eu-north-1
         'version' => 'latest',
         'credentials' => [
         'key' => $GLOBALS['credentials_Key'],
