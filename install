@@ -25,36 +25,8 @@ echo "Please enter your AWS secret key: "
 read secret
 echo "Please enter InstanceId of the AWS EC2 instance you want to monitor: "
 read instanceid
-x=1
-location=""
-while [ $x -eq 1 ]
-do
-    echo "Which AWS location is you EC2 instance running on?
-1. us-east-1
-2. us-east-2
-3. us-west-1
-4. us-west-2
-5. eu-north-1"
-    read option
-    if [ option -eq 1]; then
-	location="us-east-1"
-	x=2
-    elif [ option -eq 2]; then
-	location="us-east-2"
-	x=2
-    elif [ option -eq 3]; then
-	location="us-west-1"
-	x=2
-    elif [ option -eq 4]; then
-	location="us-west-2"
-	x=2
-    elif [ option -eq 5]; then
-	location="eu-north-1"
-	x=2
-    else
-	echo "Please enter a valid option"
-    fi
-done
+echo "Which AWS location is you EC2 instance running on?"
+read location
 
 echo "<?php
 \$credentials_Key = '$key';
