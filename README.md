@@ -37,6 +37,9 @@ git clone https://github.com/GunnarGrop1/dva313-project.git
 
 The install script will ask you to enter you AWS IAM Key, Secret Key, and the instance-id of the EC2 instance you want to monitor,
 as well as the instances' availability zone (e.g us-east-1), so make sure to have those handy.
+
+**Note**: When entering the availability zone, it will always end with a number (e.g write us-east-2, instead of us-east-2c).
+
 Run the install script (it will ask you for sudo priviliges):
 ```bash
 cd dva313-project/
@@ -70,6 +73,8 @@ Clone the repository:
 ```
 git clone https://github.com/GunnarGrop1/dva313-project.git
 ```
+
+**Note**: When entering the availability zone, it will always end with a number (e.g write us-east-2, instead of us-east-2c).
 
 Create a file called "credentials.php" in "dva313-project/backend/src", make sure it looks like this:
 ```php
