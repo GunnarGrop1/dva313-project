@@ -13,7 +13,7 @@ The aim of the project is to offer an easy way of monitoring resource usage for 
 ## Amazon Web Services
 For this program to do anything useful you will need an [AWS](https://aws.amazon.com/) account with an [EC2](https://console.aws.amazon.com/ec2/v2) instance running.
 Once you have an EC2 instance running, go do the the [IAM](https://console.aws.amazon.com/iam) panel, and create a an IAM account.
-REMEMBER to keep the secret key, as you will need it later. Go to the priviliges section and grant your new user full CloudWatch rights.
+Give the new IAM user programmatic access, and give it the "CloudWatchFullAccess" right. REMEMBER to keep the secret key, as you will need it later. Go to the priviliges section and grant your new user full CloudWatch rights.
 
 ## Installation
 
@@ -58,7 +58,7 @@ sudo apt update && sudo apt upgrade -y
 ```
 
 ### Windows 10
-Setting everything up on Windows 10 must be done manually, and requires som work.
+Setting everything up on Windows 10 must be done manually, and requires some work.
 First of all make sure you have [git](https://git-scm.com/downloads), [npm](https://www.npmjs.com/get-npm), and [XAMPP](https://www.apachefriends.org/download.html) installed.
 
 Clone the repository:
