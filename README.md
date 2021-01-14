@@ -23,8 +23,6 @@ Once you have an IAM account, go to the EC2 panel and create a virtual machine o
 ## Installation
 
 ### Ubuntu 20.04
-PLEASE only install this on a new virtual machine, and not on your personal system.
-
 Download the dependencies:
 ```bash
 sudo apt install apache2 php php-mysqli php-xml php-mbstring mariadb-server npm git
